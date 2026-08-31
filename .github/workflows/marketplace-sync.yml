@@ -55,7 +55,7 @@ jobs:
           changed=$(node -e "const fs=require('fs'); const r=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/catalog-change-report.json','utf8')); process.stdout.write(String(r.changed === true))")
           assets=$(gh release view "$tag" --json assets --jq '.assets[].name' 2>/dev/null || true)
           bootstrap=false
-          for artifact in catalog.v1.json catalog-summary.v1.json categories.v1.json compatibility.v1.json integrity.json sources.lock.json; do
+          for artifact in catalog.v1.json catalog-summary.v1.json categories.v1.json compatibility.v1.json integrity.json sources.lock.json catalog-latest.v1.json; do
             if ! printf '%s\n' "$assets" | grep -Fxq "$artifact"; then
               bootstrap=true
             fi
