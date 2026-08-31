@@ -78,9 +78,10 @@ gate used by scheduled synchronization.
 `.github/workflows/marketplace-sync.yml` runs every six hours and on manual
 dispatch. It exits without a commit when source heads match the lock, builds and
 validates when they differ, commits generated artifacts to `main`, and publishes
-an immutable catalog release plus a latest catalog asset. It also bootstraps the
-release when the current catalog is unchanged but has never been published. CI
-runs formatting,
+an immutable catalog release plus a latest catalog asset. All required assets
+are attached before publication, and CI verifies that the published release is
+actually immutable. It also bootstraps the release when the current catalog is
+unchanged but has never been published. CI runs formatting,
 lint, type checking, tests, build, schema/integrity, determinism, and generated
 artifact consistency checks.
 

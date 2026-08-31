@@ -9,11 +9,14 @@ The immutable release URL for the current catalog is derived from `catalogId`:
 `https://github.com/0xPlayerOne/plugins/releases/download/catalog/<catalogId-suffix>/catalog.v1.json`
 
 For example, `catalog:abc...` is published under the immutable tag
-`catalog/abc...`. Each catalog release contains exactly these six versioned
+`catalog/abc...`. Each catalog release contains these six required versioned
 artifacts: `catalog.v1.json`, `catalog-summary.v1.json`, `categories.v1.json`,
-`compatibility.v1.json`, `integrity.json`, and `sources.lock.json`. The
-`catalog-latest.v1.json` asset is byte-identical to `catalog.v1.json` in the
-latest catalog release.
+`compatibility.v1.json`, `integrity.json`, and `sources.lock.json`. It also
+contains the `catalog-latest.v1.json` pointer asset, which is byte-identical to
+`catalog.v1.json` in that release. The repository’s GitHub immutable-release
+setting is enabled; all assets are attached before the release is published.
+Consumers should use the stable latest URL for discovery, then pin the
+digest-derived release URL and exact `catalogId` for caching and audit records.
 
 Consumers must verify `integrity.json` before accepting any artifact and treat
 the following identifiers and fields as opaque, exact values:

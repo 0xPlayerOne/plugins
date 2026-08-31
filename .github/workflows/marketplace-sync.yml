@@ -60,19 +60,24 @@ jobs:
               bootstrap=true
             fi
           done
+          release_is_immutable=false
+          if gh release view "$tag" >/dev/null 2>&1; then
+            release_is_immutable=$(gh release view "$tag" --json isImmutable --jq '.isImmutable')
+          fi
           latest_tag=$(gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '.tag_name' 2>/dev/null || true)
           is_latest=false
           if [ "$latest_tag" = "$tag" ]; then
             is_latest=true
           fi
           publish=false
-          if [ "$changed" = true ] || [ "$bootstrap" = true ] || [ "$is_latest" != true ]; then
+          if [ "$changed" = true ] || [ "$bootstrap" = true ] || [ "$is_latest" != true ] || [ "$release_is_immutable" != true ]; then
             publish=true
           fi
           {
             echo "catalog_id=$catalog_id"
             echo "release_tag=$tag"
             echo "bootstrap=$bootstrap"
+            echo "release_is_immutable=$release_is_immutable"
             echo "publish=$publish"
           } >> "$GITHUB_OUTPUT"
       - name: Commit generated snapshot
@@ -97,6 +102,8 @@ jobs:
         run: |
           set -euo pipefail
           tag='${{ steps.publication.outputs.release_tag }}'
+          latest_asset="$RUNNER_TEMP/catalog-latest.v1.json"
+          cp generated/catalog.v1.json "$latest_asset"
           if ! gh release view "$tag" >/dev/null 2>&1; then
             gh release create "$tag" \
               generated/catalog.v1.json \
@@ -105,11 +112,18 @@ jobs:
               generated/compatibility.v1.json \
               generated/integrity.json \
               generated/sources.lock.json \
+              "$latest_asset" \
               --target "$(git rev-parse HEAD)" \
-              --latest \
+              --draft \
               --title "Marketplace catalog $tag" \
               --notes-file "$RUNNER_TEMP/catalog-change-report.json"
           else
+            release_is_draft=$(gh release view "$tag" --json isDraft --jq '.isDraft')
+            release_is_immutable=$(gh release view "$tag" --json isImmutable --jq '.isImmutable')
+            if [ "$release_is_draft" != true ] && [ "$release_is_immutable" != true ]; then
+              echo "Published release $tag is not immutable; refusing to mutate it. Remove the invalid release and rerun bootstrap." >&2
+              exit 1
+            fi
             assets=$(gh release view "$tag" --json assets --jq '.assets[].name' 2>/dev/null || true)
             for artifact in catalog.v1.json catalog-summary.v1.json categories.v1.json compatibility.v1.json integrity.json sources.lock.json; do
               if ! printf '%s\n' "$assets" | grep -Fxq "$artifact"; then
@@ -119,8 +133,6 @@ jobs:
           fi
           assets=$(gh release view "$tag" --json assets --jq '.assets[].name' 2>/dev/null || true)
           if ! printf '%s\n' "$assets" | grep -Fxq 'catalog-latest.v1.json'; then
-            latest_asset="$RUNNER_TEMP/catalog-latest.v1.json"
-            cp generated/catalog.v1.json "$latest_asset"
             gh release upload "$tag" "$latest_asset"
           fi
           gh release edit "$tag" --draft=false --latest
@@ -136,3 +148,4 @@ jobs:
           bun run verify:published -- "$release_dir"
           cmp "$release_dir/catalog.v1.json" "$release_dir/catalog-latest.v1.json"
           test "$(gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '.tag_name')" = '${{ steps.publication.outputs.release_tag }}'
+          test "$(gh release view '${{ steps.publication.outputs.release_tag }}' --json isImmutable --jq '.isImmutable')" = true

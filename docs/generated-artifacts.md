@@ -15,8 +15,11 @@ The scheduled workflow compares source heads first. If all four heads equal the
 lock, it exits successfully without touching generated files. When any head
 changes, it builds a temporary catalog, validates schemas and integrity, writes
 a JSON change report, commits the replacement to `main`, and creates a release
-tag whose name is derived from the catalog digest. The release uploads all
-versioned artifacts and a stable latest-catalog asset.
+tag whose name is derived from the catalog digest. The workflow attaches the
+six required versioned artifacts plus the byte-identical
+`catalog-latest.v1.json` pointer to a draft, then publishes it. GitHub immutable
+releases are enabled for this repository, so a published catalog tag and its
+assets cannot be replaced in place.
 
 If parsing, source resolution, policy, classification, integrity, or artifact
 publication fails, the workflow fails and the previous generated snapshot and
