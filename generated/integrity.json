@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "catalog:39f85a5ab4cdfb5c374c44b3b79827fa82dfba830c8087612264a0d25c8f8a87",
+  "files": {
+    "catalog-summary.v1.json": "sha256:7bc0db9c45e2408b43e856ef78e0e94852549007390202d8f8e947c49999839d",
+    "catalog.v1.json": "sha256:fc6a759bf544ed3cf0d1de8e0fd2afb36556e4b8891073c7563cd08bd8d81f04",
+    "categories.v1.json": "sha256:c466a0f9ce1d39aea7ce8751bb4967a9421a2ff4eece714db9face726203babb",
+    "compatibility.v1.json": "sha256:355c9debcbc77305dfa73a30e26b98610c635d61d9b000d0cdec02300d40640e",
+    "sources.lock.json": "sha256:7bc3a5b020864d6b7421776ef8c2c8aa7ac92bcf7577eb6b04c7f7c437ede2fb"
+  }
+}

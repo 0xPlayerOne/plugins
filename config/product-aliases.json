@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "aliases": {
+    "gmail": "gmail",
+    "google-mail": "gmail",
+    "google calendar": "google-calendar",
+    "google-calendar": "google-calendar",
+    "slack": "slack",
+    "linear": "linear",
+    "figma": "figma",
+    "canva": "canva",
+    "github": "github",
+    "google drive": "google-drive",
+    "google-drive": "google-drive"
+  }
+}

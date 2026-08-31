@@ -1,0 +1,54 @@
+name: Marketplace CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: marketplace-ci-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: '1.4.1'
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Formatting
+        run: bun run format:check
+      - name: Lint
+        run: bun run lint
+      - name: Type check
+        run: bun run type-check
+      - name: Unit and integration tests
+        run: bun test --timeout 30000
+      - name: Build
+        run: bun run build
+      - name: Schema and integrity validation
+        run: bun run schema:check && bun run verify:integrity
+      - name: Generated artifact consistency
+        run: |
+          bun run catalog sync --offline --fixture-root fixtures --json
+          git diff --exit-code -- generated
+      - name: Dependency and secret scan boundary
+        run: |
+          if git grep -nE '(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,})' -- . ':!bun.lock'; then
+            echo 'Potential secret detected.'
+            exit 1
+          else
+            test $? -eq 1
+          fi

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "aliases": {
+    "productivity": "productivity",
+    "communication": "communication",
+    "developer tools": "developer-tools",
+    "development": "developer-tools",
+    "security": "security",
+    "design": "design",
+    "creativity": "design",
+    "finance": "finance",
+    "database": "data",
+    "data": "data",
+    "monitoring": "monitoring",
+    "sales": "sales",
+    "marketing": "marketing",
+    "legal": "legal",
+    "hr": "people",
+    "human resources": "people",
+    "engineering": "engineering"
+  },
+  "fallback": "other"
+}

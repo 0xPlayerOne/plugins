@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "catalog:39f85a5ab4cdfb5c374c44b3b79827fa82dfba830c8087612264a0d25c8f8a87",
+  "categories": [
+    {
+      "category": "data",
+      "pluginIds": [
+        "plugin:knowledge-work-official:search"
+      ]
+    },
+    {
+      "category": "developer-tools",
+      "pluginIds": [
+        "plugin:cursor-official:teaching"
+      ]
+    },
+    {
+      "category": "productivity",
+      "pluginIds": [
+        "plugin:cursor-official:calendar",
+        "plugin:openai-official:calendar",
+        "plugin:openai-official:linear"
+      ]
+    },
+    {
+      "category": "sales",
+      "pluginIds": [
+        "plugin:claude-official:sales"
+      ]
+    },
+    {
+      "category": "security",
+      "pluginIds": [
+        "plugin:claude-official:security"
+      ]
+    }
+  ]
+}
