@@ -1219,8 +1219,11 @@ async function resolveSource(
     parsed,
     pluginPins,
     retrievedAt:
-      locked?.retrievedAt ??
-      (mode === 'offline' ? '2026-01-01T00:00:00.000Z' : new Date().toISOString()),
+      fromLock && locked
+        ? locked.retrievedAt
+        : mode === 'offline'
+          ? '2026-01-01T00:00:00.000Z'
+          : new Date().toISOString(),
     manifestDigest: digest(manifestText),
   };
 }
