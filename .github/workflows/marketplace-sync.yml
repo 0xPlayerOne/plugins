@@ -41,7 +41,9 @@ jobs:
       - name: Resolve and build catalog
         id: sync
         if: inputs['bootstrap-only'] != true
-        run: bun packages/cli/src/index.ts sync --json | tee "$RUNNER_TEMP/catalog-change-report.json"
+        run: |
+          set -o pipefail
+          bun packages/cli/src/index.ts sync --json | tee "$RUNNER_TEMP/catalog-change-report.json"
       - name: Validate catalog
         run: bun run catalog validate --json
       - name: Determine publication
