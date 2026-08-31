@@ -129,11 +129,15 @@ jobs:
           set -euo pipefail
           release_dir="$RUNNER_TEMP/catalog-release"
           mkdir -p "$release_dir"
-          gh release download '${{ steps.publication.outputs.release_tag }}' --dir "$release_dir" --pattern '*.json'
+          tag='${{ steps.publication.outputs.release_tag }}'
+          actual_assets=$(gh release view "$tag" --json assets --jq '.assets[].name' | sort)
+          expected_assets=$(printf '%s\n' catalog-latest.v1.json catalog-summary.v1.json catalog.v1.json categories.v1.json compatibility.v1.json integrity.json sources.lock.json | sort)
+          test "$actual_assets" = "$expected_assets"
+          gh release download "$tag" --dir "$release_dir" --pattern '*.json'
           bun run verify:published -- "$release_dir"
           cmp "$release_dir/catalog.v1.json" "$release_dir/catalog-latest.v1.json"
-          test "$(gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '.tag_name')" = '${{ steps.publication.outputs.release_tag }}'
-          test "$(gh release view '${{ steps.publication.outputs.release_tag }}' --json isImmutable --jq '.isImmutable')" = true
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '.tag_name')" = "$tag"
+          test "$(gh release view "$tag" --json isImmutable --jq '.isImmutable')" = true
       - name: Commit generated snapshot
         id: commit
         run: |

@@ -14,7 +14,8 @@ artifacts: `catalog.v1.json`, `catalog-summary.v1.json`, `categories.v1.json`,
 `compatibility.v1.json`, `integrity.json`, and `sources.lock.json`. It also
 contains the `catalog-latest.v1.json` pointer asset, which is byte-identical to
 `catalog.v1.json` in that release. The repository’s GitHub immutable-release
-setting is enabled; all assets are attached before the release is published.
+setting is enabled; this seven-file asset set is attached before the release is
+published.
 Consumers should use the stable latest URL for discovery, then pin the
 digest-derived release URL and exact `catalogId` for caching and audit records.
 
