@@ -1325,9 +1325,20 @@ function rawUrl(repositoryUrl: string, commitSha: string, path: string): string 
 }
 
 async function fetchText(url: string): Promise<string> {
-  const response = await fetch(url);
+  const response = await fetch(url, { headers: githubRequestHeaders() });
   if (!response.ok) throw new Error(`HTTP_FETCH_FAILED: ${response.status}:${url}`);
   return response.text();
+}
+
+function githubRequestHeaders(): Record<string, string> {
+  const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
+  return token
+    ? {
+        accept: 'application/vnd.github+json',
+        authorization: `Bearer ${token}`,
+        'user-agent': 'agent-hq-plugin-marketplace',
+      }
+    : { 'user-agent': 'agent-hq-plugin-marketplace' };
 }
 
 class NetworkSnapshotLoader implements SnapshotLoader {
@@ -1354,10 +1365,7 @@ class NetworkSnapshotLoader implements SnapshotLoader {
       const response = await fetch(
         `https://api.github.com/repos/${owner}/${repo}/git/trees/${commitSha}?recursive=1`,
         {
-          headers: {
-            accept: 'application/vnd.github+json',
-            'user-agent': 'agent-hq-plugin-marketplace',
-          },
+          headers: githubRequestHeaders(),
         },
       );
       if (!response.ok)
@@ -1391,7 +1399,9 @@ class NetworkSnapshotLoader implements SnapshotLoader {
       if (size > this.#policy.maxFileBytes || totalSize + size > this.#policy.maxBytesPerPlugin)
         throw new Error(`PLUGIN_SIZE_POLICY: ${entry.path}`);
       totalSize += size;
-      const response = await fetch(rawUrl(repositoryUrl, commitSha, entry.path));
+      const response = await fetch(rawUrl(repositoryUrl, commitSha, entry.path), {
+        headers: githubRequestHeaders(),
+      });
       if (!response.ok) throw new Error(`GIT_FILE_FETCH_FAILED: ${response.status}:${entry.path}`);
       const bytes = new Uint8Array(await response.arrayBuffer());
       if (bytes.byteLength > this.#policy.maxFileBytes)

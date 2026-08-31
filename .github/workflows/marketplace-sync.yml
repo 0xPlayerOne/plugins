@@ -41,6 +41,8 @@ jobs:
       - name: Resolve and build catalog
         id: sync
         if: inputs['bootstrap-only'] != true
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -o pipefail
           bun packages/cli/src/index.ts sync --json | tee "$RUNNER_TEMP/catalog-change-report.json"
