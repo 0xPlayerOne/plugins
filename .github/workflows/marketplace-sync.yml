@@ -60,7 +60,11 @@ jobs:
               bootstrap=true
             fi
           done
-          is_latest=$(gh release view "$tag" --json isLatest --jq '.isLatest' 2>/dev/null || echo false)
+          latest_tag=$(gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '.tag_name' 2>/dev/null || true)
+          is_latest=false
+          if [ "$latest_tag" = "$tag" ]; then
+            is_latest=true
+          fi
           publish=false
           if [ "$changed" = true ] || [ "$bootstrap" = true ] || [ "$is_latest" != true ]; then
             publish=true
@@ -115,7 +119,9 @@ jobs:
           fi
           assets=$(gh release view "$tag" --json assets --jq '.assets[].name' 2>/dev/null || true)
           if ! printf '%s\n' "$assets" | grep -Fxq 'catalog-latest.v1.json'; then
-            gh release upload "$tag" generated/catalog.v1.json#catalog-latest.v1.json
+            latest_asset="$RUNNER_TEMP/catalog-latest.v1.json"
+            cp generated/catalog.v1.json "$latest_asset"
+            gh release upload "$tag" "$latest_asset"
           fi
           gh release edit "$tag" --draft=false --latest
       - name: Verify published catalog assets
@@ -129,4 +135,4 @@ jobs:
           gh release download '${{ steps.publication.outputs.release_tag }}' --dir "$release_dir" --pattern '*.json'
           bun run verify:published -- "$release_dir"
           cmp "$release_dir/catalog.v1.json" "$release_dir/catalog-latest.v1.json"
-          test "$(gh release view '${{ steps.publication.outputs.release_tag }}' --json isLatest --jq '.isLatest')" = true
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '.tag_name')" = '${{ steps.publication.outputs.release_tag }}'
