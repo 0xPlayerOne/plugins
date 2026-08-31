@@ -351,10 +351,10 @@ async function buildCatalogInternal(input: BuildCatalogInput): Promise<BuildCata
   for (const source of input.resolvedSources) {
     if (source.parsed.entries.length > policy.maxMarketplacePlugins)
       throw new Error('MARKETPLACE_TOO_MANY_PLUGINS');
-    for (const entry of source.parsed.entries) {
+    const normalized = await mapWithConcurrency(source.parsed.entries, 8, async (entry) => {
       try {
-        plugins.push(
-          await normalizePlugin({
+        return {
+          plugin: await normalizePlugin({
             source,
             entry,
             categoryMap: input.categoryMap,
@@ -364,12 +364,16 @@ async function buildCatalogInternal(input: BuildCatalogInput): Promise<BuildCata
             snapshotLoader: input.snapshotLoader,
             resolveExternalRefs: input.resolveExternalRefs ?? true,
           }),
-        );
+        };
       } catch (error) {
         const skipped = createSkippedPlugin(source, entry, error);
         if (!skipped) throw error;
-        skippedPlugins.push(skipped);
+        return { skipped };
       }
+    });
+    for (const result of normalized) {
+      if (result.plugin) plugins.push(result.plugin);
+      if (result.skipped) skippedPlugins.push(result.skipped);
     }
   }
   plugins.sort((left, right) => left.pluginId.localeCompare(right.pluginId));
