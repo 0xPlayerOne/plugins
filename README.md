@@ -41,6 +41,8 @@ source adapter. A failed build never replaces `generated/`.
 - `packages/cli` — the `plugins` command surface.
 
 The full boundary and data flow are in [`docs/architecture.md`](docs/architecture.md).
+The Agent HQ and Control Plane URL/field contract is in
+[`docs/consumer-contract.md`](docs/consumer-contract.md).
 
 ## Commands
 
@@ -76,7 +78,9 @@ gate used by scheduled synchronization.
 `.github/workflows/marketplace-sync.yml` runs every six hours and on manual
 dispatch. It exits without a commit when source heads match the lock, builds and
 validates when they differ, commits generated artifacts to `main`, and publishes
-an immutable catalog release plus a latest catalog asset. CI runs formatting,
+an immutable catalog release plus a latest catalog asset. It also bootstraps the
+release when the current catalog is unchanged but has never been published. CI
+runs formatting,
 lint, type checking, tests, build, schema/integrity, determinism, and generated
 artifact consistency checks.
 

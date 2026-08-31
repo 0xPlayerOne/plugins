@@ -1,4 +1,4 @@
-import { mkdtemp, mkdir, symlink, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, symlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, test } from 'bun:test';
@@ -11,6 +11,7 @@ import {
   stableReleaseId,
   synchronize,
   verifyArtifacts,
+  writeArtifacts,
   type CatalogPolicy,
   type CategoryMap,
   type ProductAliases,
@@ -272,6 +273,9 @@ describe('deterministic catalog synchronization', () => {
       mode: 'offline',
       fixtureRoot: join(process.cwd(), 'fixtures'),
     });
+    const outputDirectory = join(await mkdtemp(join(tmpdir(), 'plugin-lkg-')), 'generated');
+    await writeArtifacts(outputDirectory, first.artifacts!);
+    const previousCatalog = await readFile(join(outputDirectory, 'catalog.v1.json'), 'utf8');
     await expect(
       synchronize({
         sources,
@@ -288,6 +292,7 @@ describe('deterministic catalog synchronization', () => {
       }),
     ).rejects.toThrow('PLUGIN_PATH_NOT_FOUND');
     expect(first.artifacts?.['catalog.v1.json']).toContain(first.catalog?.catalogId);
+    expect(await readFile(join(outputDirectory, 'catalog.v1.json'), 'utf8')).toBe(previousCatalog);
   });
 });
 

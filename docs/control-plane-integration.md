@@ -1,5 +1,8 @@
 # Control Plane integration
 
+The exact artifact URLs, immutable tag format, and consumer field contract are
+maintained in [`consumer-contract.md`](consumer-contract.md).
+
 Control Plane remains the authority for workspace installations, policy,
 credentials, and execution. It should fetch an immutable catalog release,
 verify `integrity.json`, parse `catalog.v1.json`, and resolve an exact

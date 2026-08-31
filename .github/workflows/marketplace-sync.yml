@@ -30,13 +30,38 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Resolve and build catalog
         id: sync
-        run: bun run catalog sync --json | tee "$RUNNER_TEMP/catalog-change-report.json"
+        run: bun packages/cli/src/index.ts sync --json | tee "$RUNNER_TEMP/catalog-change-report.json"
       - name: Validate catalog
         run: bun run catalog validate --json
-      - name: Commit generated snapshot
-        id: commit
+      - name: Determine publication
+        id: publication
         env:
           GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          catalog_id=$(node -e "const fs=require('fs'); const c=JSON.parse(fs.readFileSync('generated/catalog.v1.json','utf8')); process.stdout.write(c.catalogId)")
+          tag="catalog/${catalog_id#catalog:}"
+          changed=$(node -e "const fs=require('fs'); const r=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/catalog-change-report.json','utf8')); process.stdout.write(String(r.changed === true))")
+          assets=$(gh release view "$tag" --json assets --jq '.assets[].name' 2>/dev/null || true)
+          bootstrap=false
+          for artifact in catalog.v1.json catalog-summary.v1.json categories.v1.json compatibility.v1.json integrity.json sources.lock.json; do
+            if ! printf '%s\n' "$assets" | grep -Fxq "$artifact"; then
+              bootstrap=true
+            fi
+          done
+          is_latest=$(gh release view "$tag" --json isLatest --jq '.isLatest' 2>/dev/null || echo false)
+          publish=false
+          if [ "$changed" = true ] || [ "$bootstrap" = true ] || [ "$is_latest" != true ]; then
+            publish=true
+          fi
+          {
+            echo "catalog_id=$catalog_id"
+            echo "release_tag=$tag"
+            echo "bootstrap=$bootstrap"
+            echo "publish=$publish"
+          } >> "$GITHUB_OUTPUT"
+      - name: Commit generated snapshot
+        id: commit
         run: |
           changed=$(node -e "const fs=require('fs'); const r=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/catalog-change-report.json','utf8')); process.stdout.write(String(r.changed === true))")
           if [ "$changed" != "true" ]; then
@@ -44,23 +69,53 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          catalog_id=$(node -e "const fs=require('fs'); const r=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/catalog-change-report.json','utf8')); process.stdout.write(r.catalogId)")
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add generated
           git commit -m "chore(catalog): refresh marketplace snapshot"
           git push origin HEAD:main
-          tag="catalog/${catalog_id#catalog:}"
-          git tag "$tag"
-          git push origin "$tag"
           echo "changed=true" >> "$GITHUB_OUTPUT"
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
       - name: Publish immutable catalog release
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.publication.outputs.publish == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${{ steps.commit.outputs.tag }}" generated/*.json \
-            --title "Marketplace catalog ${{ steps.commit.outputs.tag }}" \
-            --notes-file "$RUNNER_TEMP/catalog-change-report.json"
-          gh release upload "${{ steps.commit.outputs.tag }}" generated/catalog.v1.json#catalog-latest.v1.json
+          set -euo pipefail
+          tag='${{ steps.publication.outputs.release_tag }}'
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" \
+              generated/catalog.v1.json \
+              generated/catalog-summary.v1.json \
+              generated/categories.v1.json \
+              generated/compatibility.v1.json \
+              generated/integrity.json \
+              generated/sources.lock.json \
+              --target "$(git rev-parse HEAD)" \
+              --latest \
+              --title "Marketplace catalog $tag" \
+              --notes-file "$RUNNER_TEMP/catalog-change-report.json"
+          else
+            assets=$(gh release view "$tag" --json assets --jq '.assets[].name' 2>/dev/null || true)
+            for artifact in catalog.v1.json catalog-summary.v1.json categories.v1.json compatibility.v1.json integrity.json sources.lock.json; do
+              if ! printf '%s\n' "$assets" | grep -Fxq "$artifact"; then
+                gh release upload "$tag" "generated/$artifact"
+              fi
+            done
+          fi
+          assets=$(gh release view "$tag" --json assets --jq '.assets[].name' 2>/dev/null || true)
+          if ! printf '%s\n' "$assets" | grep -Fxq 'catalog-latest.v1.json'; then
+            gh release upload "$tag" generated/catalog.v1.json#catalog-latest.v1.json
+          fi
+          gh release edit "$tag" --draft=false --latest
+      - name: Verify published catalog assets
+        if: steps.publication.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          release_dir="$RUNNER_TEMP/catalog-release"
+          mkdir -p "$release_dir"
+          gh release download '${{ steps.publication.outputs.release_tag }}' --dir "$release_dir" --pattern '*.json'
+          bun run verify:published -- "$release_dir"
+          cmp "$release_dir/catalog.v1.json" "$release_dir/catalog-latest.v1.json"
+          test "$(gh release view '${{ steps.publication.outputs.release_tag }}' --json isLatest --jq '.isLatest')" = true

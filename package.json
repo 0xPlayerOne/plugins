@@ -22,6 +22,7 @@
     "diff": "bun run catalog diff",
     "materialize-plan": "bun run catalog materialize-plan",
     "build-catalog": "bun run catalog build-catalog",
+    "verify:published": "bun run scripts/verify-published-artifacts.ts",
     "schema:check": "bun run packages/cli/src/index.ts validate --schema-only",
     "sync:fixtures": "bun run packages/cli/src/index.ts sync --offline --fixture-root fixtures",
     "sync:live": "bun run packages/cli/src/index.ts sync",

@@ -1,5 +1,8 @@
 # Agent HQ integration
 
+The exact artifact URLs and field contract are maintained in
+[`consumer-contract.md`](consumer-contract.md).
+
 Agent HQ should consume static JSON over a pinned catalog release or the stable
 latest artifact. It can use:
 
