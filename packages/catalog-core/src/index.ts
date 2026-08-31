@@ -17,6 +17,7 @@ import {
   type PluginProvenance,
   HarnessSchema,
   SourcesLockSchema,
+  PluginSchema,
 } from '../../catalog-schema/src/index.js';
 import {
   canonicalRepositoryUrl,
@@ -119,6 +120,7 @@ export type PluginSkipReasonCode =
   | 'PLUGIN_FILE_TOO_LARGE'
   | 'PLUGIN_MANIFEST_INVALID'
   | 'PLUGIN_PATH_NOT_FOUND'
+  | 'PLUGIN_SCHEMA_INVALID'
   | 'PLUGIN_SIZE_POLICY'
   | 'PLUGIN_TOO_LARGE'
   | 'PLUGIN_TOO_MANY_FILES'
@@ -353,18 +355,21 @@ async function buildCatalogInternal(input: BuildCatalogInput): Promise<BuildCata
       throw new Error('MARKETPLACE_TOO_MANY_PLUGINS');
     const normalized = await mapWithConcurrency(source.parsed.entries, 8, async (entry) => {
       try {
-        return {
-          plugin: await normalizePlugin({
-            source,
-            entry,
-            categoryMap: input.categoryMap,
-            productAliases: input.productAliases,
-            policy,
-            metadataOnly: input.metadataOnly ?? false,
-            snapshotLoader: input.snapshotLoader,
-            resolveExternalRefs: input.resolveExternalRefs ?? true,
-          }),
-        };
+        const plugin = await normalizePlugin({
+          source,
+          entry,
+          categoryMap: input.categoryMap,
+          productAliases: input.productAliases,
+          policy,
+          metadataOnly: input.metadataOnly ?? false,
+          snapshotLoader: input.snapshotLoader,
+          resolveExternalRefs: input.resolveExternalRefs ?? true,
+        });
+        try {
+          return { plugin: PluginSchema.parse(plugin) };
+        } catch {
+          throw new PluginSafetyError('PLUGIN_SCHEMA_INVALID', []);
+        }
       } catch (error) {
         const skipped = createSkippedPlugin(source, entry, error);
         if (!skipped) throw error;
@@ -421,6 +426,8 @@ const pluginSkipReasons: Readonly<Record<PluginSkipReasonCode, string>> = {
     'The plugin manifest is malformed, so the catalog excludes the plugin before consuming its metadata.',
   PLUGIN_PATH_NOT_FOUND:
     'The declared plugin path does not exist at the pinned commit, so the catalog excludes the plugin.',
+  PLUGIN_SCHEMA_INVALID:
+    'The normalized plugin record exceeds the published catalog schema, so the catalog excludes it before publication.',
   PLUGIN_SIZE_POLICY:
     'The plugin exceeds the configured size policy, so the catalog excludes it before publication.',
   PLUGIN_TOO_LARGE:
