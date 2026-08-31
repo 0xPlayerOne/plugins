@@ -264,6 +264,74 @@ describe('deterministic catalog synchronization', () => {
     expect(rebuilt.artifacts).toEqual(first.artifacts);
   });
 
+  test('skips apollo-skills symlinks deterministically without dropping safe plugins', async () => {
+    const fixtureRoot = await mkdtemp(join(tmpdir(), 'apollo-symlink-'));
+    await mkdir(join(fixtureRoot, 'apollo'), { recursive: true });
+    await writeFile(
+      join(fixtureRoot, 'apollo', 'marketplace.json'),
+      JSON.stringify({
+        plugins: [
+          {
+            name: 'apollo-skills',
+            description: 'Unsafe symlink regression fixture.',
+            source: './apollo-skills',
+          },
+          {
+            name: 'safe-plugin',
+            description: 'Safe plugin fixture.',
+            source: './safe-plugin',
+          },
+        ],
+      }),
+    );
+    const source: SourceConfig = {
+      ...sources[0]!,
+      sourceId: 'apollo-regression',
+      displayName: 'Apollo symlink regression',
+      manifestPath: 'marketplace.json',
+      fixturePath: 'apollo',
+      fixtureCommitSha: 'a'.repeat(40),
+    };
+    const result = await synchronize({
+      sources: [source],
+      categoryMap,
+      productAliases,
+      policy,
+      mode: 'offline',
+      fixtureRoot,
+      snapshotLoader: {
+        load: async (_repositoryUrl, _commitSha, pluginSubdirectory) =>
+          pluginSubdirectory === 'apollo-skills'
+            ? {
+                files: new Map(),
+                symlinks: ['.github/skills/skill-creator', 'CLAUDE.md'],
+              }
+            : {
+                files: new Map([['skill.md', new TextEncoder().encode('# Safe plugin')]]),
+                symlinks: [],
+              },
+      },
+    });
+
+    expect(result.catalog?.plugins.map((plugin) => plugin.upstreamPluginName)).toEqual([
+      'safe-plugin',
+    ]);
+    expect(result.changeReport.contentResolution).toBe('complete-with-skips');
+    expect(result.changeReport.skippedPlugins).toEqual([
+      {
+        sourceId: 'apollo-regression',
+        pluginId: 'plugin:apollo-regression:apollo-skills',
+        pluginName: 'apollo-skills',
+        reasonCode: 'SYMLINK_ESCAPE',
+        securityReason:
+          'The plugin snapshot contains symlinks; symlinks are never followed, so the catalog excludes the plugin.',
+        incompleteContent: true,
+        paths: ['.github/skills/skill-creator', 'CLAUDE.md'].sort(),
+      },
+    ]);
+    verifyArtifacts(result.artifacts!);
+  });
+
   test('keeps a failed build from producing a new artifact set', async () => {
     const first = await synchronize({
       sources,
@@ -286,11 +354,11 @@ describe('deterministic catalog synchronization', () => {
         fixtureRoot: join(process.cwd(), 'fixtures'),
         snapshotLoader: {
           load: async () => {
-            throw new Error('PLUGIN_PATH_NOT_FOUND');
+            throw new Error('UPSTREAM_FETCH_FAILED');
           },
         },
       }),
-    ).rejects.toThrow('PLUGIN_PATH_NOT_FOUND');
+    ).rejects.toThrow('UPSTREAM_FETCH_FAILED');
     expect(first.artifacts?.['catalog.v1.json']).toContain(first.catalog?.catalogId);
     expect(await readFile(join(outputDirectory, 'catalog.v1.json'), 'utf8')).toBe(previousCatalog);
   });

@@ -16,7 +16,9 @@ bun run verify:integrity
 bun run catalog materialize-plan --plugin plugin:openai-official:linear --harness codex
 ```
 
-The normal fixture suite is offline and deterministic. Live discovery is
+The normal fixture suite is offline and deterministic. The checked-in fixture
+catalog/bootstrap release is for development and initial publication only;
+it is not a live production snapshot. Live discovery is
 explicit:
 
 ```sh
@@ -26,7 +28,10 @@ bun run catalog sync --dry-run --metadata-only --json
 Live synchronization resolves the four configured marketplace heads, fetches
 only manifests in dry-run mode, and reports whether a source changed. A full
 live build additionally retrieves immutable Git trees and raw files through the
-source adapter. A failed build never replaces `generated/`.
+source adapter. A failed build never replaces `generated/`. Unsafe individual
+plugins are skipped with a deterministic security reason in the synchronization
+change report; their content is never followed or published. The remaining safe
+plugins can still form a live catalog.
 
 ## Architecture
 

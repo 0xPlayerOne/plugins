@@ -110,7 +110,29 @@ export interface ChangeReport {
   readonly removedPlugins: readonly string[];
   readonly changedPlugins: readonly string[];
   readonly permissionSensitiveChanges: readonly string[];
-  readonly contentResolution: 'complete' | 'metadata-only';
+  readonly skippedPlugins: readonly SkippedPlugin[];
+  readonly contentResolution: 'complete' | 'complete-with-skips' | 'metadata-only';
+}
+
+export type PluginSkipReasonCode =
+  | 'GIT_SUBMODULE_UNSUPPORTED'
+  | 'PLUGIN_FILE_TOO_LARGE'
+  | 'PLUGIN_MANIFEST_INVALID'
+  | 'PLUGIN_PATH_NOT_FOUND'
+  | 'PLUGIN_SIZE_POLICY'
+  | 'PLUGIN_TOO_LARGE'
+  | 'PLUGIN_TOO_MANY_FILES'
+  | 'SNAPSHOT_PATH_INVALID'
+  | 'SYMLINK_ESCAPE';
+
+export interface SkippedPlugin {
+  readonly sourceId: string;
+  readonly pluginId: string;
+  readonly pluginName: string;
+  readonly reasonCode: PluginSkipReasonCode;
+  readonly securityReason: string;
+  readonly incompleteContent: true;
+  readonly paths: readonly string[];
 }
 
 export interface GeneratedArtifacts {
@@ -230,12 +252,13 @@ export async function synchronize(input: SyncInput): Promise<SyncResult> {
         removedPlugins: [],
         changedPlugins: [],
         permissionSensitiveChanges: [],
+        skippedPlugins: [],
         contentResolution: input.metadataOnly ? 'metadata-only' : 'complete',
       },
     };
   }
 
-  const catalog = await buildCatalog({
+  const buildResult = await buildCatalogInternal({
     resolvedSources: resolved,
     categoryMap: input.categoryMap,
     productAliases: input.productAliases,
@@ -248,10 +271,17 @@ export async function synchronize(input: SyncInput): Promise<SyncResult> {
         : new NetworkSnapshotLoader(input.policy)),
     resolveExternalRefs: mode === 'live',
   });
+  const catalog = buildResult.catalog;
   const lock = createSourcesLock(resolved);
   const artifacts = createArtifacts(catalog, lock);
   verifyArtifacts(artifacts);
-  const report = createChangeReport(catalog, lock, input.existingLock, input.existingCatalog);
+  const report = createChangeReport(
+    catalog,
+    lock,
+    input.existingLock,
+    input.existingCatalog,
+    buildResult.skippedPlugins,
+  );
   if (input.policy.publishRequiresCompleteContent && input.metadataOnly) {
     throw new Error('CATALOG_CONTENT_INCOMPLETE: publication requires complete content');
   }
@@ -275,6 +305,25 @@ export async function buildCatalog(input: {
   readonly snapshotLoader: SnapshotLoader;
   readonly resolveExternalRefs?: boolean;
 }): Promise<Catalog> {
+  return (await buildCatalogInternal(input)).catalog;
+}
+
+interface BuildCatalogInput {
+  readonly resolvedSources: readonly ResolvedSource[];
+  readonly categoryMap: CategoryMap;
+  readonly productAliases: ProductAliases;
+  readonly policy?: CatalogPolicy;
+  readonly metadataOnly?: boolean;
+  readonly snapshotLoader: SnapshotLoader;
+  readonly resolveExternalRefs?: boolean;
+}
+
+interface BuildCatalogResult {
+  readonly catalog: Catalog;
+  readonly skippedPlugins: readonly SkippedPlugin[];
+}
+
+async function buildCatalogInternal(input: BuildCatalogInput): Promise<BuildCatalogResult> {
   const policy = input.policy ?? DEFAULT_POLICY;
   for (const source of input.resolvedSources) {
     assertRepositoryAllowed(source.config.repositoryUrl, policy);
@@ -298,25 +347,38 @@ export async function buildCatalog(input: {
     }))
     .sort((left, right) => left.sourceId.localeCompare(right.sourceId));
   const plugins: Plugin[] = [];
+  const skippedPlugins: SkippedPlugin[] = [];
   for (const source of input.resolvedSources) {
     if (source.parsed.entries.length > policy.maxMarketplacePlugins)
       throw new Error('MARKETPLACE_TOO_MANY_PLUGINS');
     for (const entry of source.parsed.entries) {
-      plugins.push(
-        await normalizePlugin({
-          source,
-          entry,
-          categoryMap: input.categoryMap,
-          productAliases: input.productAliases,
-          policy,
-          metadataOnly: input.metadataOnly ?? false,
-          snapshotLoader: input.snapshotLoader,
-          resolveExternalRefs: input.resolveExternalRefs ?? true,
-        }),
-      );
+      try {
+        plugins.push(
+          await normalizePlugin({
+            source,
+            entry,
+            categoryMap: input.categoryMap,
+            productAliases: input.productAliases,
+            policy,
+            metadataOnly: input.metadataOnly ?? false,
+            snapshotLoader: input.snapshotLoader,
+            resolveExternalRefs: input.resolveExternalRefs ?? true,
+          }),
+        );
+      } catch (error) {
+        const skipped = createSkippedPlugin(source, entry, error);
+        if (!skipped) throw error;
+        skippedPlugins.push(skipped);
+      }
     }
   }
   plugins.sort((left, right) => left.pluginId.localeCompare(right.pluginId));
+  skippedPlugins.sort(
+    (left, right) =>
+      left.pluginId.localeCompare(right.pluginId) ||
+      left.reasonCode.localeCompare(right.reasonCode) ||
+      left.paths.join('\0').localeCompare(right.paths.join('\0')),
+  );
   const body = {
     schemaVersion: 1 as const,
     generatedAt:
@@ -327,10 +389,84 @@ export async function buildCatalog(input: {
     sources: sourceRecords,
     plugins,
   };
-  return CatalogSchema.parse({
-    ...body,
-    catalogId: `catalog:${digest(body).slice('sha256:'.length)}`,
-  });
+  return {
+    catalog: CatalogSchema.parse({
+      ...body,
+      catalogId: `catalog:${digest(body).slice('sha256:'.length)}`,
+    }),
+    skippedPlugins,
+  };
+}
+
+class PluginSafetyError extends Error {
+  constructor(
+    readonly reasonCode: PluginSkipReasonCode,
+    readonly paths: readonly string[],
+  ) {
+    super(`${reasonCode}${paths.length > 0 ? `: ${paths.join(',')}` : ''}`);
+    this.name = 'PluginSafetyError';
+  }
+}
+
+const pluginSkipReasons: Readonly<Record<PluginSkipReasonCode, string>> = {
+  GIT_SUBMODULE_UNSUPPORTED:
+    'The plugin contains a Git submodule, so the catalog excludes it rather than traversing an unpinned repository boundary.',
+  PLUGIN_FILE_TOO_LARGE:
+    'The plugin contains a file over the configured size limit, so the catalog excludes the plugin before publication.',
+  PLUGIN_MANIFEST_INVALID:
+    'The plugin manifest is malformed, so the catalog excludes the plugin before consuming its metadata.',
+  PLUGIN_PATH_NOT_FOUND:
+    'The declared plugin path does not exist at the pinned commit, so the catalog excludes the plugin.',
+  PLUGIN_SIZE_POLICY:
+    'The plugin exceeds the configured size policy, so the catalog excludes it before publication.',
+  PLUGIN_TOO_LARGE:
+    'The plugin exceeds the configured aggregate size limit, so the catalog excludes it before publication.',
+  PLUGIN_TOO_MANY_FILES:
+    'The plugin exceeds the configured file-count limit, so the catalog excludes it before publication.',
+  SNAPSHOT_PATH_INVALID:
+    'The plugin snapshot contains an unsafe path, so the catalog excludes it rather than allowing repository escape.',
+  SYMLINK_ESCAPE:
+    'The plugin snapshot contains symlinks; symlinks are never followed, so the catalog excludes the plugin.',
+};
+
+function createSkippedPlugin(
+  source: ResolvedSource,
+  entry: MarketplacePluginEntry,
+  error: unknown,
+): SkippedPlugin | undefined {
+  const parsed =
+    error instanceof PluginSafetyError
+      ? { reasonCode: error.reasonCode, paths: error.paths }
+      : parsePluginSafetyError(error);
+  if (!parsed) return undefined;
+  return {
+    sourceId: source.config.sourceId,
+    pluginId: stablePluginId(source.config.sourceId, entry.name),
+    pluginName: entry.name,
+    reasonCode: parsed.reasonCode,
+    securityReason: pluginSkipReasons[parsed.reasonCode],
+    incompleteContent: true,
+    paths: [...new Set(parsed.paths)].sort(),
+  };
+}
+
+function parsePluginSafetyError(
+  error: unknown,
+): { reasonCode: PluginSkipReasonCode; paths: readonly string[] } | undefined {
+  const message = error instanceof Error ? error.message : String(error);
+  const match = /^([A-Z_]+)(?::\s?(.*))?$/.exec(message);
+  if (!match) return undefined;
+  const reasonCode = match[1] as PluginSkipReasonCode;
+  if (!(reasonCode in pluginSkipReasons)) return undefined;
+  return {
+    reasonCode,
+    paths: match[2]
+      ? match[2]
+          .split(',')
+          .map((path) => path.trim())
+          .filter(Boolean)
+      : [],
+  };
 }
 
 async function normalizePlugin(input: {
@@ -358,7 +494,7 @@ async function normalizePlugin(input: {
         resolved.subdirectory,
       );
   if (snapshot.symlinks.length > 0)
-    throw new Error(`SYMLINK_ESCAPE: ${entry.name}:${snapshot.symlinks.join(',')}`);
+    throw new PluginSafetyError('SYMLINK_ESCAPE', [...snapshot.symlinks].sort());
   validateSnapshot(snapshot, policy, entry.name);
   const contentDigest = input.metadataOnly
     ? digest({
@@ -535,15 +671,20 @@ interface ResolvedPluginSource {
 
 function validateSnapshot(snapshot: Snapshot, policy: CatalogPolicy, pluginName: string): void {
   if (snapshot.files.size > policy.maxFilesPerPlugin)
-    throw new Error(`PLUGIN_TOO_MANY_FILES: ${pluginName}`);
+    throw new PluginSafetyError('PLUGIN_TOO_MANY_FILES', [pluginName]);
   let total = 0;
   for (const [path, bytes] of snapshot.files) {
-    safeRelativePath(path, 'SNAPSHOT_PATH_INVALID');
+    try {
+      safeRelativePath(path, 'SNAPSHOT_PATH_INVALID');
+    } catch {
+      throw new PluginSafetyError('SNAPSHOT_PATH_INVALID', [path]);
+    }
     if (bytes.byteLength > policy.maxFileBytes)
-      throw new Error(`PLUGIN_FILE_TOO_LARGE: ${pluginName}:${path}`);
+      throw new PluginSafetyError('PLUGIN_FILE_TOO_LARGE', [path]);
     total += bytes.byteLength;
   }
-  if (total > policy.maxBytesPerPlugin) throw new Error(`PLUGIN_TOO_LARGE: ${pluginName}`);
+  if (total > policy.maxBytesPerPlugin)
+    throw new PluginSafetyError('PLUGIN_TOO_LARGE', [pluginName]);
 }
 
 function assertRepositoryAllowed(repositoryUrl: string, policy: CatalogPolicy): void {
@@ -589,7 +730,7 @@ function findPluginManifest(snapshot: Snapshot): PluginManifest | undefined {
         .sort(),
     };
   } catch {
-    throw new Error(`PLUGIN_MANIFEST_INVALID: ${path}`);
+    throw new PluginSafetyError('PLUGIN_MANIFEST_INVALID', [path]);
   }
 }
 
@@ -966,6 +1107,7 @@ function createChangeReport(
   lock: SourcesLock,
   existingLock?: SourcesLock,
   existingCatalog?: Catalog,
+  skippedPlugins: readonly SkippedPlugin[] = [],
 ): ChangeReport {
   const changedSources = existingLock
     ? lock.sources
@@ -1007,6 +1149,7 @@ function createChangeReport(
     addedPlugins: addedPlugins.sort(),
     removedPlugins: removedPlugins.sort(),
     changedPlugins: changedPlugins.sort(),
+    skippedPlugins,
     permissionSensitiveChanges: catalog.plugins
       .flatMap((plugin) =>
         plugin.securityClassification.permissionSensitiveChanges.map(
@@ -1014,11 +1157,14 @@ function createChangeReport(
         ),
       )
       .sort(),
-    contentResolution: catalog.plugins.some(
-      (plugin) => plugin.securityClassification.contentResolution === 'metadata-only',
-    )
-      ? 'metadata-only'
-      : 'complete',
+    contentResolution:
+      skippedPlugins.length > 0
+        ? 'complete-with-skips'
+        : catalog.plugins.some(
+              (plugin) => plugin.securityClassification.contentResolution === 'metadata-only',
+            )
+          ? 'metadata-only'
+          : 'complete',
   };
 }
 

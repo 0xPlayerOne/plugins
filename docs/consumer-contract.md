@@ -19,6 +19,13 @@ published.
 Consumers should use the stable latest URL for discovery, then pin the
 digest-derived release URL and exact `catalogId` for caching and audit records.
 
+The checked-in bootstrap/fixture snapshot is not a production freshness claim.
+Only a successful live synchronization, identified by current source SHAs and
+its generated timestamp, is a production catalog. A release change report may
+also contain deterministic `skippedPlugins` entries. Those entries identify
+unsafe or incomplete upstream plugins that were excluded; they are not
+available for download or execution and do not weaken the snapshot boundary.
+
 Consumers must verify `integrity.json` before accepting any artifact and treat
 the following identifiers and fields as opaque, exact values:
 
