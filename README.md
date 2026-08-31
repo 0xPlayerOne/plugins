@@ -84,6 +84,10 @@ runs formatting,
 lint, type checking, tests, build, schema/integrity, determinism, and generated
 artifact consistency checks.
 
+For first publication, `workflow_dispatch` supports `bootstrap-only`, which
+validates and publishes the checked-in last-known-good catalog without live
+upstream retrieval.
+
 ## Licensing
 
 The marketplace compiler follows the existing Agent HQ organization Apache-2.0
