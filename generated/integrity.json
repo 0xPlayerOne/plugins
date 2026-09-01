@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:79c9a2f7f771d7124defbb417759fc86073e6225f37c5b15c16e60080a962edd",
+  "catalogId": "catalog:db8d6dfcf0905808079de41bfbb0d3d305c661279cd4c6fe48ea57a8d8393040",
   "files": {
-    "catalog-summary.v1.json": "sha256:95a87d07ccd0f7ce223d81156ba4727056f073e28f88dbd9f3c8b40c374daed0",
-    "catalog.v1.json": "sha256:eafafaa9c85124e69a325390576fe11929ee6c9dcc4621cb4b770f9172f1f0b8",
-    "categories.v1.json": "sha256:91788f5d9b17e934ed3af1dd05102dd60c696ee2533207db05d218e0cff9ae4a",
-    "compatibility.v1.json": "sha256:723d5067dc261c0130feca8e488d7fd28867a5271647c2d7a01e15490540bf91",
-    "sources.lock.json": "sha256:a7b2904ad5e9fbe739b7c7d6f1cff428f3996c89629212087a1b936f1f28e258"
+    "catalog-summary.v1.json": "sha256:bd1e92a5261a1e293092a6159a552a4ad5cad7aecb450f453a6a69455aad5b65",
+    "catalog.v1.json": "sha256:6cadfcefa932934798f9029fe6d14382cbb2ccf2d9ee86b069d0d0fcbc6f216e",
+    "categories.v1.json": "sha256:bf16f38d24bfb6383ad7bd1990296a089cfcdefc9ac82d04c046325e30be3c8c",
+    "compatibility.v1.json": "sha256:aaa79880490a99804c9f98ceb52985f15ca138c6bdfd723fa91e1b72528070cb",
+    "sources.lock.json": "sha256:f728ce7939412bb06eb861d55984eb3cdd5efc57c27fa840ea11ab5efcac6110"
   }
 }

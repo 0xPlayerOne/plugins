@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "lockId": "lock:241a1653626c39bddbb63f758b9a79778134334cc6c1579b9719ad1753d5835f",
+  "lockId": "lock:7d33efcd63ef23f4835c941717acd25b78f3b7b28f25d309790be6dec1a6384f",
   "sources": [
     {
       "sourceId": "claude-official",
       "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
       "defaultBranch": "main",
-      "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12",
+      "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a",
       "manifestPath": ".claude-plugin/marketplace.json",
       "marketplaceDialect": "claude",
       "sourceManifestDigest": "sha256:0ff49b6e6a71da17e0f6824edca3d99cc4ba88a26801bcb59a8f8e423ec6caa5",
-      "retrievedAt": "2026-09-01T16:12:11.089Z",
+      "retrievedAt": "2026-09-01T20:41:14.212Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
@@ -35,7 +35,7 @@
           "pluginName": "agent-sdk-dev",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/agent-sdk-dev",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "agentforce-adlc",
@@ -137,7 +137,7 @@
           "pluginName": "asana",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/asana",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "astronomer-data-agents",
@@ -365,25 +365,25 @@
           "pluginName": "clangd-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/clangd-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "claude-code-setup",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/claude-code-setup",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "claude-md-management",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/claude-md-management",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "claude-security",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/claude-security",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "clickhouse",
@@ -437,19 +437,19 @@
           "pluginName": "code-modernization",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/code-modernization",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "code-review",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/code-review",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "code-simplifier",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/code-simplifier",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "coderabbit",
@@ -467,7 +467,7 @@
           "pluginName": "commit-commands",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/commit-commands",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "confidence",
@@ -479,7 +479,7 @@
           "pluginName": "context7",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/context7",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "convex",
@@ -509,13 +509,13 @@
           "pluginName": "csharp-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/csharp-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "cwc-makers",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/cwc-makers",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "dash0",
@@ -605,7 +605,7 @@
           "pluginName": "discord",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/discord",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "dominodatalab",
@@ -641,7 +641,7 @@
           "pluginName": "explanatory-output-style",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/explanatory-output-style",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "expo",
@@ -653,7 +653,7 @@
           "pluginName": "fakechat",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/fakechat",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "fastly-agent-toolkit",
@@ -665,7 +665,7 @@
           "pluginName": "feature-dev",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/feature-dev",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "fiftyone",
@@ -683,7 +683,7 @@
           "pluginName": "firebase",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/firebase",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "firecrawl",
@@ -707,7 +707,7 @@
           "pluginName": "frontend-design",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/frontend-design",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "fullstory",
@@ -719,7 +719,7 @@
           "pluginName": "github",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/github",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "gitkraken",
@@ -731,7 +731,7 @@
           "pluginName": "gitlab",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/gitlab",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "google-cloud-storage",
@@ -743,7 +743,7 @@
           "pluginName": "gopls-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/gopls-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "grafana-assistant",
@@ -767,7 +767,7 @@
           "pluginName": "greptile",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/greptile",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "growthbook",
@@ -785,7 +785,7 @@
           "pluginName": "hookify",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/hookify",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "hostinger",
@@ -821,7 +821,7 @@
           "pluginName": "imessage",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/imessage",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "intercom",
@@ -833,7 +833,7 @@
           "pluginName": "jdtls-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/jdtls-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "jfrog",
@@ -851,7 +851,7 @@
           "pluginName": "kotlin-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/kotlin-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "langfuse",
@@ -869,7 +869,7 @@
           "pluginName": "laravel-boost",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/laravel-boost",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "learn-with-coursera",
@@ -881,7 +881,7 @@
           "pluginName": "learning-output-style",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/learning-output-style",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "legalzoom",
@@ -893,7 +893,7 @@
           "pluginName": "linear",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/linear",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "liquid-lsp",
@@ -935,7 +935,7 @@
           "pluginName": "lua-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/lua-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "lumen",
@@ -959,7 +959,7 @@
           "pluginName": "math-olympiad",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/math-olympiad",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "mattpocock-skills",
@@ -977,13 +977,13 @@
           "pluginName": "mcp-server-dev",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/mcp-server-dev",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "mcp-tunnels",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/mcp-tunnels",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "mercadopago",
@@ -1163,7 +1163,7 @@
           "pluginName": "php-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/php-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "pigment",
@@ -1193,19 +1193,19 @@
           "pluginName": "playground",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/playground",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "playwright",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/playwright",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "plugin-dev",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/plugin-dev",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "posthog",
@@ -1229,7 +1229,7 @@
           "pluginName": "pr-review-toolkit",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/pr-review-toolkit",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "preset-cli-skills",
@@ -1247,7 +1247,7 @@
           "pluginName": "project-artifact",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/project-artifact",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "pydantic-ai",
@@ -1259,7 +1259,7 @@
           "pluginName": "pyright-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/pyright-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "qdrant-skills",
@@ -1295,7 +1295,7 @@
           "pluginName": "ralph-loop",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/ralph-loop",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "rc",
@@ -1307,7 +1307,7 @@
           "pluginName": "receipts",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/receipts",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "redis-development",
@@ -1355,7 +1355,7 @@
           "pluginName": "ruby-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/ruby-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "runway-api",
@@ -1367,7 +1367,7 @@
           "pluginName": "rust-analyzer-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/rust-analyzer-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "sagemaker-ai",
@@ -1427,7 +1427,7 @@
           "pluginName": "security-guidance",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/security-guidance",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "semgrep",
@@ -1451,7 +1451,7 @@
           "pluginName": "serena",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/serena",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "servicenow-sdk",
@@ -1463,7 +1463,7 @@
           "pluginName": "session-report",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/session-report",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "shippo",
@@ -1481,7 +1481,7 @@
           "pluginName": "skill-creator",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/skill-creator",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "slack",
@@ -1577,7 +1577,7 @@
           "pluginName": "swift-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/swift-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "synthflow",
@@ -1601,13 +1601,13 @@
           "pluginName": "telegram",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/telegram",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "terraform",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "external_plugins/terraform",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "togetherai-skills",
@@ -1625,7 +1625,7 @@
           "pluginName": "typescript-lsp",
           "repositoryUrl": "https://github.com/anthropics/claude-plugins-official",
           "pluginSubdirectory": "plugins/typescript-lsp",
-          "resolvedCommitSha": "4b909c3492b350cdc42160ffe4b135e6f5c1db12"
+          "resolvedCommitSha": "e18ff5086423bd9c21902ce3100dc4ecc84a668a"
         },
         {
           "pluginName": "ui-theme-designer",
@@ -1765,390 +1765,390 @@
       "sourceId": "cursor-official",
       "repositoryUrl": "https://github.com/cursor/plugins",
       "defaultBranch": "main",
-      "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e",
+      "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e",
       "manifestPath": ".cursor-plugin/marketplace.json",
       "marketplaceDialect": "cursor",
       "sourceManifestDigest": "sha256:dc137a42d88ac96ac83fdfc2ae45d0f9c0023cea13b6b702124cc7192fe04aa8",
-      "retrievedAt": "2026-09-01T16:12:10.810Z",
+      "retrievedAt": "2026-09-01T20:41:14.195Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
           "pluginName": "agent-compatibility",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "agent-compatibility",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "ahrefs",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/ahrefs",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "amplemarket",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/amplemarket",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "ashby",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/ashby",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "brevo",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/brevo",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "brex",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/brex",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "calendly",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/calendly",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "circleback",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/circleback",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "clay",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/clay",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "cli-for-agent",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "cli-for-agent",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "coda",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/coda",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "continual-learning",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "continual-learning",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "craft",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/craft",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "create-plugin",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "create-plugin",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "cursor-sdk",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "cursor-sdk",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "cursor-team-kit",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "cursor-team-kit",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "customer-io",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/customer-io",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "docs-canvas",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "docs-canvas",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "docusign",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/docusign",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "fathom",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/fathom",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "fireflies",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/fireflies",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "github",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/github",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "gmail",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/gmail",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "godaddy",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/godaddy",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "gong",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/gong",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "google-calendar",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/google-calendar",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "google-drive",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/google-drive",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "guru",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/guru",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "hubspot",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/hubspot",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "intercom",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/intercom",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "jotform",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/jotform",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "juicebox",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/juicebox",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "klaviyo",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/klaviyo",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "mailerlite",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/mailerlite",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "mem",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/mem",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "mercury",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/mercury",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "navan",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/navan",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "onedrive",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/onedrive",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "orchestrate",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "orchestrate",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "otter",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/otter",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "outlook",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/outlook",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "outlook-calendar",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/outlook-calendar",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "outreach",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/outreach",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "playwright",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/playwright",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "pr-review-canvas",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "pr-review-canvas",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "profound",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/profound",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "pstack",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "pstack",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "ralph-loop",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "ralph-loop",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "readwise",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/readwise",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "salesforce",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/salesforce",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "semrush",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/semrush",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "similarweb",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/similarweb",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "smartsheet",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/smartsheet",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "teaching",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "teaching",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "thermos",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "thermos",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "todoist",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/todoist",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "typeform",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/typeform",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "upwork",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/upwork",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "workable",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/workable",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "wrike",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/wrike",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "x",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/x",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "xero",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/xero",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         },
         {
           "pluginName": "zoom",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/zoom",
-          "resolvedCommitSha": "b9ddc83c32972210b8a94d389130713e8eed346e"
+          "resolvedCommitSha": "23a56e2dac2efd54788056db8eced26e371d7b5e"
         }
       ]
     },
@@ -2160,7 +2160,7 @@
       "manifestPath": ".claude-plugin/marketplace.json",
       "marketplaceDialect": "claude",
       "sourceManifestDigest": "sha256:ca4aeb49b0875d9d9076a9ca492e0980f5a3600e882668f79061f92c6709e373",
-      "retrievedAt": "2026-09-01T16:12:11.063Z",
+      "retrievedAt": "2026-09-01T20:41:14.217Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
@@ -2761,7 +2761,7 @@
       "manifestPath": ".agents/plugins/marketplace.json",
       "marketplaceDialect": "openai",
       "sourceManifestDigest": "sha256:58e5b091a3d78e794a21d23737cfeb3d72c493cac9a8494829806a8c848da66e",
-      "retrievedAt": "2026-09-01T16:12:10.780Z",
+      "retrievedAt": "2026-09-01T20:41:14.518Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
