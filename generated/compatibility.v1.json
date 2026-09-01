@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:2777e061484d9bd8002fbcdc453c802eb6b8a79efb440b1f602bee477b31ef94",
+  "catalogId": "catalog:79c9a2f7f771d7124defbb417759fc86073e6225f37c5b15c16e60080a962edd",
   "plugins": [
     {
       "pluginId": "plugin:claude-official:42crunch-api-security-testing",
@@ -31336,6 +31336,81 @@
             "agent",
             "command",
             "skill"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:knowledge-work-official:security-guidance",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook"
+          ]
+        },
+        "claude-code": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook"
+          ]
+        },
+        "cursor": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook"
+          ]
+        },
+        "pi": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook"
+          ]
+        },
+        "hermes": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook"
+          ]
+        },
+        "opencode": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook"
           ]
         }
       }

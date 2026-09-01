@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:2777e061484d9bd8002fbcdc453c802eb6b8a79efb440b1f602bee477b31ef94",
-  "generatedAt": "2026-08-31T21:14:48.929Z",
+  "catalogId": "catalog:79c9a2f7f771d7124defbb417759fc86073e6225f37c5b15c16e60080a962edd",
+  "generatedAt": "2026-09-01T16:12:11.089Z",
   "sourceCount": 4,
-  "pluginCount": 476,
+  "pluginCount": 477,
   "categories": [
     "automation",
     "business-operations",
@@ -1991,6 +1991,10 @@
     {
       "pluginId": "plugin:knowledge-work-official:searchfit-seo",
       "text": "SearchFit SEO Free AI-powered SEO toolkit — audit websites, plan content strategy, optimize pages, generate schema markup, cluster keywords, and track AI visibility. Works with any website or codebase. other searchfit seo"
+    },
+    {
+      "pluginId": "plugin:knowledge-work-official:security-guidance",
+      "text": "Security Guidance Security review for Claude-generated code. Pattern-based warnings on edits, LLM-powered diff review on Stop, and an agentic commit reviewer that catches injection, XSS, SSRF, hardcoded secrets, and 25+ other vulnerability classes. guidance security"
     },
     {
       "pluginId": "plugin:knowledge-work-official:servicenow-sdk",

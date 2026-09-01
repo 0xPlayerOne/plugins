@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:2777e061484d9bd8002fbcdc453c802eb6b8a79efb440b1f602bee477b31ef94",
+  "catalogId": "catalog:79c9a2f7f771d7124defbb417759fc86073e6225f37c5b15c16e60080a962edd",
   "categories": [
     {
       "category": "automation",
@@ -566,6 +566,7 @@
         "plugin:claude-official:workos",
         "plugin:claude-official:zscaler",
         "plugin:knowledge-work-official:auth0",
+        "plugin:knowledge-work-official:security-guidance",
         "plugin:knowledge-work-official:stackhawk-api",
         "plugin:knowledge-work-official:stackhawk-hawkscan",
         "plugin:knowledge-work-official:vanta-mcp-plugin",
