@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:b230595ea5f815cea0b4d7736ae3dfe6006efd3f4eb78c5f14a1168a28c63333",
-  "generatedAt": "2026-09-02T10:49:12.622Z",
+  "catalogId": "catalog:ee0b6656b7109be1df3723cbbf2e05bb5a62458842646f7ed1a01f5a49f65427",
+  "generatedAt": "2026-09-02T16:07:53.279Z",
   "sourceCount": 4,
   "pluginCount": 478,
   "categories": [
@@ -1059,7 +1059,7 @@
     },
     {
       "pluginId": "plugin:claude-official:newrelic",
-      "text": "newrelic New Relic observability intelligence for Claude Code. Investigate APM performance, analyze cloud costs, debug Kubernetes, write NRQL queries, and respond to alerts — all from your terminal using New Relic telemetry data. monitoring newrelic"
+      "text": "New Relic New Relic observability intelligence for Claude Code. Investigate APM performance, analyze cloud costs, debug Kubernetes, write NRQL queries, and respond to alerts — all from your terminal using New Relic telemetry data. monitoring newrelic"
     },
     {
       "pluginId": "plugin:claude-official:nightvision",
@@ -1079,7 +1079,7 @@
     },
     {
       "pluginId": "plugin:claude-official:nvidia-skills",
-      "text": "NVIDIA Skills NVIDIA agent skills for accelerated-computing workflows — starting with cuOpt vehicle-routing optimization (VRP, TSP, PDP) via the cuOpt Python API. developer-tools nvidia skills"
+      "text": "NVIDIA Skills Find the right NVIDIA skill for GPU acceleration, CUDA, AI agents, data loading, training, inference, robotics, Physical AI, Omniverse, simulation, and other NVIDIA-powered workflows. developer-tools nvidia skills"
     },
     {
       "pluginId": "plugin:claude-official:oracle-ai-data-platform-workbench-databricks-migrator",
