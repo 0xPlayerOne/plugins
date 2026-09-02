@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lockId": "lock:74e301a7cba5234e686e86a20bff19ebfcf2448f34cd5698c45a1fdbed5450c0",
+  "lockId": "lock:3da2955a58def6d07cd467b47ede762265c74daf12f241208e2e3388d1a1810f",
   "sources": [
     {
       "sourceId": "claude-official",
@@ -10,7 +10,7 @@
       "manifestPath": ".claude-plugin/marketplace.json",
       "marketplaceDialect": "claude",
       "sourceManifestDigest": "sha256:0ff49b6e6a71da17e0f6824edca3d99cc4ba88a26801bcb59a8f8e423ec6caa5",
-      "retrievedAt": "2026-09-02T03:22:12.095Z",
+      "retrievedAt": "2026-09-02T10:49:12.585Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
@@ -1765,396 +1765,396 @@
       "sourceId": "cursor-official",
       "repositoryUrl": "https://github.com/cursor/plugins",
       "defaultBranch": "main",
-      "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba",
+      "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b",
       "manifestPath": ".cursor-plugin/marketplace.json",
       "marketplaceDialect": "cursor",
       "sourceManifestDigest": "sha256:2218b1407f9a077ae8352b352e4bc435d5806f6ccbc9607e3c35c7772780ebf9",
-      "retrievedAt": "2026-09-02T03:22:11.608Z",
+      "retrievedAt": "2026-09-02T10:49:12.286Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
           "pluginName": "agent-compatibility",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "agent-compatibility",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "ahrefs",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/ahrefs",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "amplemarket",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/amplemarket",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "ashby",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/ashby",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "brevo",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/brevo",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "brex",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/brex",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "calendly",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/calendly",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "circleback",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/circleback",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "clay",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/clay",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "cli-for-agent",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "cli-for-agent",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "coda",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/coda",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "continual-learning",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "continual-learning",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "craft",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/craft",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "create-plugin",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "create-plugin",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "cursor-sdk",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "cursor-sdk",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "cursor-team-kit",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "cursor-team-kit",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "customer-io",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/customer-io",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "docs-canvas",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "docs-canvas",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "docusign",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/docusign",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "fathom",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/fathom",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "fireflies",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/fireflies",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "github",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/github",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "gmail",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/gmail",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "godaddy",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/godaddy",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "gong",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/gong",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "google-calendar",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/google-calendar",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "google-drive",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/google-drive",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "guru",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/guru",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "hubspot",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/hubspot",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "intercom",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/intercom",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "jotform",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/jotform",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "juicebox",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/juicebox",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "klaviyo",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/klaviyo",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "mailerlite",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/mailerlite",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "mem",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/mem",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "mercury",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/mercury",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "navan",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/navan",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "onedrive",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/onedrive",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "orchestrate",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "orchestrate",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "otter",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/otter",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "outlook",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/outlook",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "outlook-calendar",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/outlook-calendar",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "outreach",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/outreach",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "playwright",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/playwright",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "pr-review-canvas",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "pr-review-canvas",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "profound",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/profound",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "pstack",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "pstack",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "ralph-loop",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "ralph-loop",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "readwise",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/readwise",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "salesforce",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/salesforce",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "semrush",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/semrush",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "similarweb",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/similarweb",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "smartsheet",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/smartsheet",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "teaching",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "teaching",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "thermos",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "thermos",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "todoist",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/todoist",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "typeform",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/typeform",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "upwork",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/upwork",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "workable",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/workable",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "wrike",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/wrike",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "x",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/x",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "x-ads",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/x-ads",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "xero",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/xero",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         },
         {
           "pluginName": "zoom",
           "repositoryUrl": "https://github.com/cursor/plugins",
           "pluginSubdirectory": "third_party/zoom",
-          "resolvedCommitSha": "82f1d4f49ba8f21e3315a89c97e82f7c02a48fba"
+          "resolvedCommitSha": "efa2a531985e0a8084d36ff3cf87233be8a9f34b"
         }
       ]
     },
@@ -2166,7 +2166,7 @@
       "manifestPath": ".claude-plugin/marketplace.json",
       "marketplaceDialect": "claude",
       "sourceManifestDigest": "sha256:ca4aeb49b0875d9d9076a9ca492e0980f5a3600e882668f79061f92c6709e373",
-      "retrievedAt": "2026-09-02T03:22:11.734Z",
+      "retrievedAt": "2026-09-02T10:49:12.538Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
@@ -2767,7 +2767,7 @@
       "manifestPath": ".agents/plugins/marketplace.json",
       "marketplaceDialect": "openai",
       "sourceManifestDigest": "sha256:58e5b091a3d78e794a21d23737cfeb3d72c493cac9a8494829806a8c848da66e",
-      "retrievedAt": "2026-09-02T03:22:12.120Z",
+      "retrievedAt": "2026-09-02T10:49:12.622Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
