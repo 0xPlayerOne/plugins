@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:db8d6dfcf0905808079de41bfbb0d3d305c661279cd4c6fe48ea57a8d8393040",
-  "generatedAt": "2026-09-01T20:41:14.518Z",
+  "catalogId": "catalog:be5276f4efe97f0ec2cda427db8b0d67751b6f84bea19b63d017af9110a54dc7",
+  "generatedAt": "2026-09-02T03:22:12.120Z",
   "sourceCount": 4,
-  "pluginCount": 477,
+  "pluginCount": 478,
   "categories": [
     "automation",
     "business-operations",
@@ -407,6 +407,7 @@
     "workable",
     "workos",
     "wrike",
+    "x-ads",
     "x-plugin",
     "xero",
     "youdotcom-agent-skills",
@@ -1703,6 +1704,10 @@
     {
       "pluginId": "plugin:cursor-official:wrike",
       "text": "Wrike Search projects, create tasks, and post comments. other wrike"
+    },
+    {
+      "pluginId": "plugin:cursor-official:x-ads",
+      "text": "X Ads Manage ad campaigns, create ads, track conversions, and pull performance stats. ads other x"
     },
     {
       "pluginId": "plugin:cursor-official:x-plugin",

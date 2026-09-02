@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:db8d6dfcf0905808079de41bfbb0d3d305c661279cd4c6fe48ea57a8d8393040",
+  "catalogId": "catalog:be5276f4efe97f0ec2cda427db8b0d67751b6f84bea19b63d017af9110a54dc7",
   "categories": [
     {
       "category": "automation",
@@ -412,6 +412,7 @@
         "plugin:cursor-official:upwork",
         "plugin:cursor-official:workable",
         "plugin:cursor-official:wrike",
+        "plugin:cursor-official:x-ads",
         "plugin:cursor-official:x-plugin",
         "plugin:cursor-official:xero",
         "plugin:cursor-official:zoom",

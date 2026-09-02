@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:db8d6dfcf0905808079de41bfbb0d3d305c661279cd4c6fe48ea57a8d8393040",
+  "catalogId": "catalog:be5276f4efe97f0ec2cda427db8b0d67751b6f84bea19b63d017af9110a54dc7",
   "plugins": [
     {
       "pluginId": "plugin:claude-official:42crunch-api-security-testing",
@@ -25439,6 +25439,77 @@
     },
     {
       "pluginId": "plugin:cursor-official:wrike",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "claude-code": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "cursor": {
+          "status": "native",
+          "reasons": [
+            "The cursor marketplace dialect matches the cursor harness."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "pi": {
+          "status": "partially-supported",
+          "reasons": [
+            "Capability mcp-server is not granted by this catalog.",
+            "Sensitive capabilities require pi policy and runtime review."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "hermes": {
+          "status": "partially-supported",
+          "reasons": [
+            "Capability mcp-server is not granted by this catalog.",
+            "Sensitive capabilities require hermes policy and runtime review."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "opencode": {
+          "status": "partially-supported",
+          "reasons": [
+            "Capability mcp-server is not granted by this catalog.",
+            "Sensitive capabilities require opencode policy and runtime review."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:cursor-official:x-ads",
       "harnessCompatibility": {
         "codex": {
           "status": "portable",
