@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lockId": "lock:f231db63b6967e2cad1f722db9f8cc94eb01c7323a9bf0e1bea34fe69b2308b3",
+  "lockId": "lock:f5ebe5e517e7044e8f19c05b91653a6ca2a4cb51428076628e9b3042810d08e5",
   "sources": [
     {
       "sourceId": "claude-official",
@@ -10,7 +10,7 @@
       "manifestPath": ".claude-plugin/marketplace.json",
       "marketplaceDialect": "claude",
       "sourceManifestDigest": "sha256:067f1407cb9106834a3f5b5f1948cdf2b9a14e86928fa7207442ae0021ae5248",
-      "retrievedAt": "2026-09-02T16:07:53.241Z",
+      "retrievedAt": "2026-09-03T03:23:41.174Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
@@ -1769,7 +1769,7 @@
       "manifestPath": ".cursor-plugin/marketplace.json",
       "marketplaceDialect": "cursor",
       "sourceManifestDigest": "sha256:2218b1407f9a077ae8352b352e4bc435d5806f6ccbc9607e3c35c7772780ebf9",
-      "retrievedAt": "2026-09-02T16:07:53.139Z",
+      "retrievedAt": "2026-09-03T03:23:40.854Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
@@ -2162,11 +2162,11 @@
       "sourceId": "knowledge-work-official",
       "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
       "defaultBranch": "main",
-      "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977",
+      "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de",
       "manifestPath": ".claude-plugin/marketplace.json",
       "marketplaceDialect": "claude",
-      "sourceManifestDigest": "sha256:ca4aeb49b0875d9d9076a9ca492e0980f5a3600e882668f79061f92c6709e373",
-      "retrievedAt": "2026-09-02T16:07:53.279Z",
+      "sourceManifestDigest": "sha256:3f90b3d9e6e29e01d6a95b65ae6f439d0be53db1e425b19eb1421d0c67cd27c9",
+      "retrievedAt": "2026-09-03T03:23:41.054Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
@@ -2209,7 +2209,7 @@
           "pluginName": "apollo",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "partner-built/apollo",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "atlan",
@@ -2245,7 +2245,7 @@
           "pluginName": "bio-research",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "bio-research",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "box",
@@ -2257,7 +2257,7 @@
           "pluginName": "brand-voice",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "partner-built/brand-voice",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "brightdata-plugin",
@@ -2329,19 +2329,19 @@
           "pluginName": "common-room",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "partner-built/common-room",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "cowork-plugin-management",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "cowork-plugin-management",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "customer-support",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "customer-support",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "daloopa",
@@ -2353,7 +2353,7 @@
           "pluginName": "data",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "data",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "datadog",
@@ -2371,7 +2371,7 @@
           "pluginName": "design",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "design",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "desktop-commander",
@@ -2389,13 +2389,13 @@
           "pluginName": "engineering",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "engineering",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "enterprise-search",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "enterprise-search",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "exa",
@@ -2419,7 +2419,7 @@
           "pluginName": "finance",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "finance",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "gitkraken",
@@ -2461,7 +2461,7 @@
           "pluginName": "human-resources",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "human-resources",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "intercom",
@@ -2485,7 +2485,7 @@
           "pluginName": "legal",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "legal",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "lseg",
@@ -2503,7 +2503,7 @@
           "pluginName": "marketing",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "marketing",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "mintlify",
@@ -2551,13 +2551,13 @@
           "pluginName": "operations",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "operations",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "pdf-viewer",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "pdf-viewer",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "pixeltable",
@@ -2587,7 +2587,7 @@
           "pluginName": "product-management",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "product-management",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "product-tracking-skills",
@@ -2599,7 +2599,7 @@
           "pluginName": "productivity",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "productivity",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "qdrant-skills",
@@ -2623,7 +2623,7 @@
           "pluginName": "sales",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "sales",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "sanity-plugin",
@@ -2659,13 +2659,13 @@
           "pluginName": "slack-by-salesforce",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "partner-built/slack",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "small-business",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "small-business",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "sp-global",
@@ -2749,7 +2749,7 @@
           "pluginName": "zoom-plugin",
           "repositoryUrl": "https://github.com/anthropics/knowledge-work-plugins",
           "pluginSubdirectory": "partner-built/zoom-plugin",
-          "resolvedCommitSha": "77961df00a4626bc3b83850064289decd5a3b977"
+          "resolvedCommitSha": "f30dc63b57654ab9b80da56ff2d1645c86f1c2de"
         },
         {
           "pluginName": "zoominfo",
@@ -2767,7 +2767,7 @@
       "manifestPath": ".agents/plugins/marketplace.json",
       "marketplaceDialect": "openai",
       "sourceManifestDigest": "sha256:58e5b091a3d78e794a21d23737cfeb3d72c493cac9a8494829806a8c848da66e",
-      "retrievedAt": "2026-09-02T16:07:53.243Z",
+      "retrievedAt": "2026-09-03T03:23:41.056Z",
       "synchronizationStatus": "synchronized",
       "pluginPins": [
         {
