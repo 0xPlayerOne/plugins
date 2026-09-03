@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogId": "catalog:d211ea61fcf975d6d02aabd7d6af67606587ab9b74a77f39c3da1ec17f0bb652",
+  "catalogId": "catalog:84f2cd238041d6ca74de2d363b20d0ce400d8ac83e628ba2375830d4179ad767",
   "plugins": [
     {
       "pluginId": "plugin:claude-official:42crunch-api-security-testing",
