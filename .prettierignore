@@ -1,2 +1,5 @@
 .github/CONTRIBUTING.md
 generated/**
+
+# Deterministic offline fixture snapshots (generated output, like generated/).
+fixtures/expected/**
