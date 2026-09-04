@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "catalog:5a39cf75d47a272402feb870826007130bbec41783544ed1f4add23becbe9999",
+  "generatedAt": "2026-01-01T00:00:00.000Z",
+  "sourceCount": 4,
+  "pluginCount": 8,
+  "categories": [
+    "data",
+    "developer-tools",
+    "other",
+    "productivity",
+    "sales",
+    "security"
+  ],
+  "productGroups": [
+    "calendar",
+    "linear",
+    "productivity",
+    "sales",
+    "search",
+    "security",
+    "teaching"
+  ],
+  "search": [
+    {
+      "pluginId": "plugin:claude-official:sales",
+      "text": "sales Prepare sales work. sales"
+    },
+    {
+      "pluginId": "plugin:claude-official:security",
+      "text": "Security Audit application security. security"
+    },
+    {
+      "pluginId": "plugin:cursor-official:calendar",
+      "text": "calendar Calendar workflows. calendar productivity"
+    },
+    {
+      "pluginId": "plugin:cursor-official:teaching",
+      "text": "teaching Practice and learning workflows. developer-tools teaching"
+    },
+    {
+      "pluginId": "plugin:knowledge-work-official:productivity",
+      "text": "Productivity Organize work. other productivity"
+    },
+    {
+      "pluginId": "plugin:knowledge-work-official:search",
+      "text": "Search Search connected data. data search"
+    },
+    {
+      "pluginId": "plugin:openai-official:calendar",
+      "text": "Calendar Plan calendar work. calendar productivity"
+    },
+    {
+      "pluginId": "plugin:openai-official:linear",
+      "text": "Linear Manage Linear issues with a portable skill. linear productivity"
+    }
+  ]
+}

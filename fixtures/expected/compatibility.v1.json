@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "catalog:5a39cf75d47a272402feb870826007130bbec41783544ed1f4add23becbe9999",
+  "plugins": [
+    {
+      "pluginId": "plugin:claude-official:sales",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "claude-code": {
+          "status": "native",
+          "reasons": [
+            "The claude marketplace dialect matches the claude-code harness."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "cursor": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "pi": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "hermes": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "opencode": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:claude-official:security",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook",
+            "skill"
+          ]
+        },
+        "claude-code": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook",
+            "skill"
+          ]
+        },
+        "cursor": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook",
+            "skill"
+          ]
+        },
+        "pi": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook",
+            "skill"
+          ]
+        },
+        "hermes": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook",
+            "skill"
+          ]
+        },
+        "opencode": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook",
+            "skill"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "unsupported",
+          "reasons": [
+            "Executable components require harness-specific execution authority."
+          ],
+          "responsibleCapabilities": [
+            "executable",
+            "hook",
+            "skill"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:cursor-official:calendar",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "claude-code": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "cursor": {
+          "status": "native",
+          "reasons": [
+            "The cursor marketplace dialect matches the cursor harness."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "pi": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "hermes": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "opencode": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:cursor-official:teaching",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "rule",
+            "skill"
+          ]
+        },
+        "claude-code": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "rule",
+            "skill"
+          ]
+        },
+        "cursor": {
+          "status": "native",
+          "reasons": [
+            "The cursor marketplace dialect matches the cursor harness."
+          ],
+          "responsibleCapabilities": [
+            "rule",
+            "skill"
+          ]
+        },
+        "pi": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "rule",
+            "skill"
+          ]
+        },
+        "hermes": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "rule",
+            "skill"
+          ]
+        },
+        "opencode": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "rule",
+            "skill"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "rule",
+            "skill"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:knowledge-work-official:productivity",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "claude-code": {
+          "status": "native",
+          "reasons": [
+            "The claude marketplace dialect matches the claude-code harness."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "cursor": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "pi": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "hermes": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "opencode": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:knowledge-work-official:search",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "claude-code": {
+          "status": "native",
+          "reasons": [
+            "The claude marketplace dialect matches the claude-code harness."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "cursor": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "pi": {
+          "status": "partially-supported",
+          "reasons": [
+            "Capability mcp-server is not granted by this catalog.",
+            "Sensitive capabilities require pi policy and runtime review."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "hermes": {
+          "status": "partially-supported",
+          "reasons": [
+            "Capability mcp-server is not granted by this catalog.",
+            "Sensitive capabilities require hermes policy and runtime review."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "opencode": {
+          "status": "partially-supported",
+          "reasons": [
+            "Capability mcp-server is not granted by this catalog.",
+            "Sensitive capabilities require opencode policy and runtime review."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "mcp-server"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:openai-official:calendar",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "native",
+          "reasons": [
+            "The openai marketplace dialect matches the codex harness."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "claude-code": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "cursor": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "pi": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "hermes": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "opencode": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "command"
+          ]
+        }
+      }
+    },
+    {
+      "pluginId": "plugin:openai-official:linear",
+      "harnessCompatibility": {
+        "codex": {
+          "status": "native",
+          "reasons": [
+            "The openai marketplace dialect matches the codex harness."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "claude-code": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "cursor": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "pi": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "hermes": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "opencode": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        },
+        "generic-skill-mcp": {
+          "status": "portable",
+          "reasons": [
+            "Files can be copied or translated into the harness layout."
+          ],
+          "responsibleCapabilities": [
+            "skill"
+          ]
+        }
+      }
+    }
+  ]
+}
