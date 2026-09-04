@@ -1,10 +1,13 @@
 import { mkdtemp, mkdir, readFile, symlink, writeFile } from 'node:fs/promises';
+import { readdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, test } from 'bun:test';
 import {
+  buildCatalog,
   bytesDigest,
   digest,
+  NetworkSnapshotLoader,
   normalizeCategory,
   snapshotFromDirectory,
   stablePluginId,
@@ -15,6 +18,7 @@ import {
   type CatalogPolicy,
   type CategoryMap,
   type ProductAliases,
+  type ResolvedSource,
 } from './index.js';
 import {
   parseJsonDocument,
@@ -443,5 +447,279 @@ describe('filesystem safety', () => {
     expect(() => {
       if ([...snapshot.files.values()][0]!.byteLength > 5) throw new Error('PLUGIN_FILE_TOO_LARGE');
     }).toThrow('PLUGIN_FILE_TOO_LARGE');
+  });
+});
+
+describe('upstream fetch quarantine', () => {
+  const sha = 'a'.repeat(40);
+  const repo = 'https://github.com/acme/demo';
+  const treeUrl = `https://api.github.com/repos/acme/demo/git/trees/${sha}?recursive=1`;
+  const manifestBytes = '{"name":"demo","description":"demo plugin","version":"1.0.0"}';
+
+  function stubFetch(handler: (url: string) => Response | Promise<Response>) {
+    const original = globalThis.fetch;
+    const calls: string[] = [];
+    globalThis.fetch = (async (input: unknown) => {
+      const url = String(input);
+      calls.push(url);
+      return handler(url);
+    }) as typeof fetch;
+    return {
+      calls,
+      restore: () => {
+        globalThis.fetch = original;
+      },
+    };
+  }
+
+  const jsonResponse = (body: unknown, status = 200, headers: Record<string, string> = {}) =>
+    new Response(JSON.stringify(body), {
+      status,
+      headers: { 'content-type': 'application/json', ...headers },
+    });
+
+  const treePayload = (paths: string[]) => ({
+    tree: paths.map((path) => ({
+      path,
+      type: 'blob',
+      sha: 'b'.repeat(40),
+      size: 64,
+      mode: '100644',
+    })),
+  });
+
+  function testEntry(name: string, subdir: string) {
+    return {
+      name,
+      description: `${name} plugin`,
+      categories: ['productivity'] as readonly string[],
+      keywords: [] as readonly string[],
+      authors: ['Acme'],
+      icons: [] as readonly string[],
+      source: { kind: 'local', path: subdir } as const,
+      policy: {},
+      raw: {},
+      entryDigest: `sha256:${'e'.repeat(64)}`,
+    };
+  }
+
+  function testSource(entries: ReturnType<typeof testEntry>[]): ResolvedSource {
+    return {
+      config: sources[0]!,
+      commitSha: sha,
+      manifestText: '{}',
+      parsed: {
+        marketplaceName: 'Acme',
+        marketplaceDescription: 'Acme fixture',
+        owner: ['Acme'],
+        entries,
+        raw: {},
+      },
+      pluginPins: [],
+      retrievedAt: new Date().toISOString(),
+      manifestDigest: digest('{}'),
+    };
+  }
+
+  async function buildWith(
+    entries: ReturnType<typeof testEntry>[],
+    handler: (url: string) => Response | Promise<Response>,
+  ) {
+    const stub = stubFetch(handler);
+    try {
+      const catalog = await buildCatalog({
+        resolvedSources: [testSource(entries)],
+        categoryMap,
+        productAliases,
+        policy,
+        metadataOnly: false,
+        snapshotLoader: new NetworkSnapshotLoader(policy),
+        resolveExternalRefs: false,
+      });
+      return { catalog, calls: stub.calls };
+    } finally {
+      stub.restore();
+    }
+  }
+
+  test('retries transient tree failures then succeeds', async () => {
+    let treeCalls = 0;
+    const stub = stubFetch((url) => {
+      if (url === treeUrl) {
+        treeCalls += 1;
+        if (treeCalls < 3) return new Response('busy', { status: 500 });
+        return jsonResponse(treePayload(['plugins/demo/plugin.json']));
+      }
+      return new Response(manifestBytes, { status: 200 });
+    });
+    try {
+      const loader = new NetworkSnapshotLoader(policy);
+      const snapshot = await loader.load(repo, sha, 'plugins/demo');
+      expect(snapshot.files.has('plugin.json')).toBe(true);
+      expect(treeCalls).toBe(3);
+    } finally {
+      stub.restore();
+    }
+  });
+
+  test('quarantines a plugin when the repository tree stays unavailable', async () => {
+    const stub = stubFetch((url) => {
+      if (url === treeUrl) return new Response('down', { status: 500 });
+      return new Response('unexpected', { status: 500 });
+    });
+    try {
+      const loader = new NetworkSnapshotLoader(policy);
+      const error = await loader.load(repo, sha, 'plugins/demo').then(
+        () => undefined,
+        (caught: unknown) => caught as Error,
+      );
+      expect(error?.message).toMatch(/^PLUGIN_SOURCE_UNAVAILABLE:/);
+      expect(stub.calls.filter((url) => url === treeUrl)).toHaveLength(3);
+    } finally {
+      stub.restore();
+    }
+  });
+
+  test('does not retry a missing file', async () => {
+    const stub = stubFetch((url) => {
+      if (url === treeUrl) return jsonResponse(treePayload(['plugins/demo/plugin.json']));
+      return new Response('gone', { status: 404 });
+    });
+    try {
+      const loader = new NetworkSnapshotLoader(policy);
+      const error = await loader.load(repo, sha, 'plugins/demo').then(
+        () => undefined,
+        (caught: unknown) => caught as Error,
+      );
+      expect(error?.message).toMatch(/^PLUGIN_PATH_NOT_FOUND:/);
+      expect(stub.calls.filter((url) => url !== treeUrl)).toHaveLength(1);
+    } finally {
+      stub.restore();
+    }
+  });
+
+  test('quarantines a plugin when file fetches keep failing', async () => {
+    const stub = stubFetch((url) => {
+      if (url === treeUrl) return jsonResponse(treePayload(['plugins/demo/plugin.json']));
+      return new Response('broken', { status: 500 });
+    });
+    try {
+      const loader = new NetworkSnapshotLoader(policy);
+      const error = await loader.load(repo, sha, 'plugins/demo').then(
+        () => undefined,
+        (caught: unknown) => caught as Error,
+      );
+      expect(error?.message).toMatch(/^PLUGIN_FILE_UNAVAILABLE:/);
+      expect(stub.calls.filter((url) => url !== treeUrl)).toHaveLength(3);
+    } finally {
+      stub.restore();
+    }
+  });
+
+  test('retries a rate-limited tree without hammering', async () => {
+    let treeCalls = 0;
+    const stub = stubFetch((url) => {
+      if (url === treeUrl) {
+        treeCalls += 1;
+        if (treeCalls === 1)
+          return new Response('limited', {
+            status: 403,
+            headers: { 'x-ratelimit-remaining': '0', 'retry-after': '0' },
+          });
+        return jsonResponse(treePayload(['plugins/demo/plugin.json']));
+      }
+      return new Response(manifestBytes, { status: 200 });
+    });
+    try {
+      const loader = new NetworkSnapshotLoader(policy);
+      const snapshot = await loader.load(repo, sha, 'plugins/demo');
+      expect(snapshot.files.has('plugin.json')).toBe(true);
+      expect(treeCalls).toBe(2);
+    } finally {
+      stub.restore();
+    }
+  });
+
+  test('does not retry a forbidden tree without rate-limit signals', async () => {
+    let treeCalls = 0;
+    const stub = stubFetch((url) => {
+      if (url === treeUrl) {
+        treeCalls += 1;
+        return new Response('denied', { status: 403 });
+      }
+      return new Response('unexpected', { status: 500 });
+    });
+    try {
+      const loader = new NetworkSnapshotLoader(policy);
+      const error = await loader.load(repo, sha, 'plugins/demo').then(
+        () => undefined,
+        (caught: unknown) => caught as Error,
+      );
+      expect(error?.message).toMatch(/^PLUGIN_SOURCE_UNAVAILABLE:/);
+      expect(treeCalls).toBe(1);
+    } finally {
+      stub.restore();
+    }
+  });
+
+  test('keeps reachable plugins when only some fail', async () => {
+    const fixtureRoot = join(process.cwd(), 'fixtures', 'openai', 'plugins', 'calendar');
+    const walk = (dir: string, base: string): string[] =>
+      readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const full = join(dir, entry.name);
+        const rel = base === '' ? entry.name : `${base}/${entry.name}`;
+        return entry.isDirectory() ? walk(full, rel) : [rel];
+      });
+    const calendarFiles = walk(fixtureRoot, '');
+    const { catalog, calls } = await buildWith(
+      [testEntry('calendar', 'plugins/calendar'), testEntry('gone', 'plugins/gone')],
+      (url) => {
+        if (url.includes('/git/trees/'))
+          return jsonResponse(
+            treePayload([
+              ...calendarFiles.map((file) => `plugins/calendar/${file}`),
+              'plugins/gone/plugin.json',
+            ]),
+          );
+        if (url.endsWith('plugins/gone/plugin.json')) return new Response('gone', { status: 404 });
+        if (url.includes('raw.githubusercontent.com')) {
+          const marker = '/plugins/calendar/';
+          const index = url.indexOf(marker);
+          if (index >= 0) {
+            const rel = url
+              .slice(index + marker.length)
+              .split('/')
+              .map(decodeURIComponent)
+              .join('/');
+            return new Response(readFileSync(join(fixtureRoot, rel)), { status: 200 });
+          }
+          return new Response(manifestBytes, { status: 200 });
+        }
+        return new Response('unexpected', { status: 500 });
+      },
+    );
+    expect(calls.length).toBeGreaterThan(0);
+    expect(catalog.plugins.map((plugin) => plugin.pluginId)).toEqual([
+      'plugin:openai-official:calendar',
+    ]);
+  });
+
+  test('fails closed when every plugin in a source is unreachable', async () => {
+    const stub = stubFetch(() => new Response('down', { status: 500 }));
+    try {
+      await expect(
+        buildCatalog({
+          resolvedSources: [testSource([testEntry('demo', 'plugins/demo')])],
+          categoryMap,
+          productAliases,
+          policy,
+          metadataOnly: false,
+          snapshotLoader: new NetworkSnapshotLoader(policy),
+          resolveExternalRefs: false,
+        }),
+      ).rejects.toThrow('PLUGIN_SOURCE_UNAVAILABLE');
+    } finally {
+      stub.restore();
+    }
   });
 });

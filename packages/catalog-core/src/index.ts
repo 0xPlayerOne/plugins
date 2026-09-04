@@ -118,10 +118,12 @@ export interface ChangeReport {
 export type PluginSkipReasonCode =
   | 'GIT_SUBMODULE_UNSUPPORTED'
   | 'PLUGIN_FILE_TOO_LARGE'
+  | 'PLUGIN_FILE_UNAVAILABLE'
   | 'PLUGIN_MANIFEST_INVALID'
   | 'PLUGIN_PATH_NOT_FOUND'
   | 'PLUGIN_SCHEMA_INVALID'
   | 'PLUGIN_SIZE_POLICY'
+  | 'PLUGIN_SOURCE_UNAVAILABLE'
   | 'PLUGIN_TOO_LARGE'
   | 'PLUGIN_TOO_MANY_FILES'
   | 'SNAPSHOT_PATH_INVALID'
@@ -376,10 +378,21 @@ async function buildCatalogInternal(input: BuildCatalogInput): Promise<BuildCata
         return { skipped };
       }
     });
+    const sourcePlugins: Plugin[] = [];
+    const sourceSkipped: SkippedPlugin[] = [];
     for (const result of normalized) {
-      if (result.plugin) plugins.push(result.plugin);
-      if (result.skipped) skippedPlugins.push(result.skipped);
+      if (result.plugin) sourcePlugins.push(result.plugin);
+      if (result.skipped) sourceSkipped.push(result.skipped);
     }
+    const weatherSkips = sourceSkipped.filter((skipped) =>
+      UPSTREAM_WEATHER_SKIP_CODES.has(skipped.reasonCode),
+    );
+    if (source.parsed.entries.length > 0 && weatherSkips.length === source.parsed.entries.length)
+      throw new PluginSafetyError('PLUGIN_SOURCE_UNAVAILABLE', [
+        canonicalRepositoryUrl(source.config.repositoryUrl),
+      ]);
+    for (const plugin of sourcePlugins) plugins.push(plugin);
+    for (const skipped of sourceSkipped) skippedPlugins.push(skipped);
   }
   plugins.sort((left, right) => left.pluginId.localeCompare(right.pluginId));
   skippedPlugins.sort(
@@ -422,6 +435,8 @@ const pluginSkipReasons: Readonly<Record<PluginSkipReasonCode, string>> = {
     'The plugin contains a Git submodule, so the catalog excludes it rather than traversing an unpinned repository boundary.',
   PLUGIN_FILE_TOO_LARGE:
     'The plugin contains a file over the configured size limit, so the catalog excludes the plugin before publication.',
+  PLUGIN_FILE_UNAVAILABLE:
+    'A plugin file could not be fetched from upstream after retries, so the catalog excludes the plugin rather than publishing partial content.',
   PLUGIN_MANIFEST_INVALID:
     'The plugin manifest is malformed, so the catalog excludes the plugin before consuming its metadata.',
   PLUGIN_PATH_NOT_FOUND:
@@ -430,6 +445,8 @@ const pluginSkipReasons: Readonly<Record<PluginSkipReasonCode, string>> = {
     'The normalized plugin record exceeds the published catalog schema, so the catalog excludes it before publication.',
   PLUGIN_SIZE_POLICY:
     'The plugin exceeds the configured size policy, so the catalog excludes it before publication.',
+  PLUGIN_SOURCE_UNAVAILABLE:
+    'The plugin repository tree could not be fetched from upstream after retries, so the catalog excludes the plugin rather than publishing partial content.',
   PLUGIN_TOO_LARGE:
     'The plugin exceeds the configured aggregate size limit, so the catalog excludes it before publication.',
   PLUGIN_TOO_MANY_FILES:
@@ -1351,7 +1368,71 @@ function githubRequestHeaders(): Record<string, string> {
     : { 'user-agent': 'agent-hq-plugin-marketplace' };
 }
 
-class NetworkSnapshotLoader implements SnapshotLoader {
+const UPSTREAM_FETCH_MAX_ATTEMPTS = 3;
+const UPSTREAM_FETCH_BASE_DELAY_MS = 1000;
+const UPSTREAM_FETCH_MAX_DELAY_MS = 30000;
+
+const UPSTREAM_WEATHER_SKIP_CODES: ReadonlySet<PluginSkipReasonCode> = new Set([
+  'PLUGIN_SOURCE_UNAVAILABLE',
+  'PLUGIN_FILE_UNAVAILABLE',
+  'PLUGIN_PATH_NOT_FOUND',
+]);
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function upstreamRetryDelayMs(attempt: number, response?: Response): number {
+  const retryAfter = response?.headers.get('retry-after');
+  if (retryAfter !== null && retryAfter !== undefined) {
+    const seconds = Number(retryAfter);
+    if (Number.isFinite(seconds) && seconds >= 0)
+      return Math.min(seconds * 1000, UPSTREAM_FETCH_MAX_DELAY_MS);
+    const date = Date.parse(retryAfter);
+    if (!Number.isNaN(date))
+      return Math.min(Math.max(date - Date.now(), 0), UPSTREAM_FETCH_MAX_DELAY_MS);
+  }
+  return Math.min(UPSTREAM_FETCH_BASE_DELAY_MS * 2 ** attempt, UPSTREAM_FETCH_MAX_DELAY_MS);
+}
+
+function isRateLimitedUpstream(response: Response): boolean {
+  return (
+    response.headers.get('x-ratelimit-remaining') === '0' ||
+    response.headers.get('retry-after') !== null
+  );
+}
+
+function isRetryableUpstreamStatus(status: number, response?: Response): boolean {
+  if (status === 429) return true;
+  if (status >= 500) return true;
+  if (status === 403 && response !== undefined && isRateLimitedUpstream(response)) return true;
+  return false;
+}
+
+async function fetchUpstream(url: string, init: RequestInit): Promise<Response> {
+  let attempt = 0;
+  for (;;) {
+    let response: Response;
+    try {
+      response = await fetch(url, init);
+    } catch (error) {
+      if (attempt >= UPSTREAM_FETCH_MAX_ATTEMPTS - 1) throw error;
+      await sleep(upstreamRetryDelayMs(attempt));
+      attempt += 1;
+      continue;
+    }
+    if (
+      response.ok ||
+      !isRetryableUpstreamStatus(response.status, response) ||
+      attempt >= UPSTREAM_FETCH_MAX_ATTEMPTS - 1
+    )
+      return response;
+    await sleep(upstreamRetryDelayMs(attempt, response));
+    attempt += 1;
+  }
+}
+
+export class NetworkSnapshotLoader implements SnapshotLoader {
   readonly #policy: CatalogPolicy;
   readonly #trees = new Map<string, readonly TreeEntry[]>();
 
@@ -1372,14 +1453,14 @@ class NetworkSnapshotLoader implements SnapshotLoader {
     const key = `${owner}/${repo}@${commitSha}`;
     let tree = this.#trees.get(key);
     if (!tree) {
-      const response = await fetch(
+      const response = await fetchUpstream(
         `https://api.github.com/repos/${owner}/${repo}/git/trees/${commitSha}?recursive=1`,
         {
           headers: githubRequestHeaders(),
         },
       );
       if (!response.ok)
-        throw new Error(`GIT_TREE_FETCH_FAILED: ${response.status}:${owner}/${repo}`);
+        throw new PluginSafetyError('PLUGIN_SOURCE_UNAVAILABLE', [`${owner}/${repo}`]);
       const payload = (await response.json()) as { truncated?: boolean; tree?: TreeEntry[] };
       if (payload.truncated) throw new Error(`GIT_TREE_TRUNCATED: ${owner}/${repo}@${commitSha}`);
       tree = (payload.tree ?? []).map((entry) => ({
@@ -1409,10 +1490,14 @@ class NetworkSnapshotLoader implements SnapshotLoader {
       if (size > this.#policy.maxFileBytes || totalSize + size > this.#policy.maxBytesPerPlugin)
         throw new Error(`PLUGIN_SIZE_POLICY: ${entry.path}`);
       totalSize += size;
-      const response = await fetch(rawUrl(repositoryUrl, commitSha, entry.path), {
+      const response = await fetchUpstream(rawUrl(repositoryUrl, commitSha, entry.path), {
         headers: githubRequestHeaders(),
       });
-      if (!response.ok) throw new Error(`GIT_FILE_FETCH_FAILED: ${response.status}:${entry.path}`);
+      if (!response.ok) {
+        if (response.status === 404)
+          throw new PluginSafetyError('PLUGIN_PATH_NOT_FOUND', [entry.path]);
+        throw new PluginSafetyError('PLUGIN_FILE_UNAVAILABLE', [entry.path]);
+      }
       const bytes = new Uint8Array(await response.arrayBuffer());
       if (bytes.byteLength > this.#policy.maxFileBytes)
         throw new Error(`PLUGIN_FILE_TOO_LARGE: ${entry.path}`);
