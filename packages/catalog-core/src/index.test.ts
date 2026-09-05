@@ -682,7 +682,13 @@ describe('upstream fetch quarantine', () => {
             ]),
           );
         if (url.endsWith('plugins/gone/plugin.json')) return new Response('gone', { status: 404 });
-        if (url.includes('raw.githubusercontent.com')) {
+        let isRawGitHubHost = false;
+        try {
+          isRawGitHubHost = new URL(url).hostname === 'raw.githubusercontent.com';
+        } catch {
+          isRawGitHubHost = false;
+        }
+        if (isRawGitHubHost) {
           const marker = '/plugins/calendar/';
           const index = url.indexOf(marker);
           if (index >= 0) {
