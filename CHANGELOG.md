@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/adea-ai/plugins/compare/v1.1.2...v1.1.3) (2026-09-05)
+
+
+### Bug Fixes
+
+* **ci:** push catalog snapshot PR with a PAT so checks trigger ([#21](https://github.com/adea-ai/plugins/issues/21)) ([24f48a3](https://github.com/adea-ai/plugins/commit/24f48a3ed7f6ef603f5dbad2b0162d4fd8980eb2))
+
 ## [1.1.2](https://github.com/adea-ai/plugins/compare/v1.1.1...v1.1.2) (2026-09-05)
 
 
