@@ -1,9 +1,5 @@
 {
-  "schemaVersion": 1,
   "catalogId": "catalog:5a39cf75d47a272402feb870826007130bbec41783544ed1f4add23becbe9999",
-  "generatedAt": "2026-01-01T00:00:00.000Z",
-  "sourceCount": 4,
-  "pluginCount": 8,
   "categories": [
     "data",
     "developer-tools",
@@ -12,6 +8,8 @@
     "sales",
     "security"
   ],
+  "generatedAt": "2026-01-01T00:00:00.000Z",
+  "pluginCount": 8,
   "productGroups": [
     "calendar",
     "linear",
@@ -21,6 +19,7 @@
     "security",
     "teaching"
   ],
+  "schemaVersion": 1,
   "search": [
     {
       "pluginId": "plugin:claude-official:sales",
@@ -54,5 +53,6 @@
       "pluginId": "plugin:openai-official:linear",
       "text": "Linear Manage Linear issues with a portable skill. linear productivity"
     }
-  ]
+  ],
+  "sourceCount": 4
 }

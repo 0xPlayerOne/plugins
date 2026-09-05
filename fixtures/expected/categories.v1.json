@@ -1,5 +1,4 @@
 {
-  "schemaVersion": 1,
   "catalogId": "catalog:5a39cf75d47a272402feb870826007130bbec41783544ed1f4add23becbe9999",
   "categories": [
     {
@@ -40,5 +39,6 @@
         "plugin:claude-official:security"
       ]
     }
-  ]
+  ],
+  "schemaVersion": 1
 }
