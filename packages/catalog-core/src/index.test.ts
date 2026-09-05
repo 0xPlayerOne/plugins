@@ -682,7 +682,7 @@ describe('upstream fetch quarantine', () => {
             ]),
           );
         if (url.endsWith('plugins/gone/plugin.json')) return new Response('gone', { status: 404 });
-        let isRawGitHubHost = false;
+        let isRawGitHubHost: boolean;
         try {
           isRawGitHubHost = new URL(url).hostname === 'raw.githubusercontent.com';
         } catch {
