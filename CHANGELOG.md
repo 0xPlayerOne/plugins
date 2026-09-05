@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/adea-ai/plugins/compare/v1.0.1...v1.1.0) (2026-09-05)
+
+
+### Features
+
+* quarantine upstream fetch failures instead of failing sync ([93e27d5](https://github.com/adea-ai/plugins/commit/93e27d52d3131636501121fe92f73be2877857f4))
+
+
+### Bug Fixes
+
+* drop dead initializer flagged by no-useless-assignment ([#11](https://github.com/adea-ai/plugins/issues/11)) ([9643bb8](https://github.com/adea-ai/plugins/commit/9643bb8953020e3eff2ff72939f9ee1bb52af046))
+
 ## [1.0.1](https://github.com/adea-ai/plugins/compare/v1.0.0...v1.0.1) (2026-09-05)
 
 
