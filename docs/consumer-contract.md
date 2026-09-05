@@ -2,11 +2,11 @@
 
 The repository is currently public. The stable browser-readable catalog URL is:
 
-`https://github.com/0xPlayerOne/plugins/releases/latest/download/catalog-latest.v1.json`
+`https://github.com/adea-ai/plugins/releases/latest/download/catalog-latest.v1.json`
 
 The immutable release URL for the current catalog is derived from `catalogId`:
 
-`https://github.com/0xPlayerOne/plugins/releases/download/catalog/<catalogId-suffix>/catalog.v1.json`
+`https://github.com/adea-ai/plugins/releases/download/catalog/<catalogId-suffix>/catalog.v1.json`
 
 For example, `catalog:abc...` is published under the immutable tag
 `catalog/abc...`. Each catalog release contains these six required versioned
