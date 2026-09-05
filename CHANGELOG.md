@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/adea-ai/plugins/compare/v1.0.0...v1.0.1) (2026-09-05)
+
+
+### Bug Fixes
+
+* **ci:** compare offline regen against fixture snapshots, not live data ([#3](https://github.com/adea-ai/plugins/issues/3)) ([0e9c769](https://github.com/adea-ai/plugins/commit/0e9c7696a835291e87d343812c3cc1d543991e15))
+
 ## 1.0.0 (2026-09-05)
 
 
