@@ -1,6 +1,5 @@
 {
-  "schemaVersion": 1,
-  "catalogId": "catalog:98a14fab856cc99fa31f3c8ab75e5f52462a532ff2e46d63325a013767ac1ba7",
+  "catalogId": "catalog:73e4daeb267a062749a1f7677202640fae1d80c853388125fc1a66236f708a9e",
   "categories": [
     {
       "category": "automation",
@@ -46,7 +45,6 @@
         "plugin:claude-official:cloud-sql-sqlserver",
         "plugin:claude-official:convex",
         "plugin:claude-official:databases-on-aws",
-        "plugin:claude-official:databricks",
         "plugin:claude-official:dataproc",
         "plugin:claude-official:dataverse",
         "plugin:claude-official:duckdb-skills",
@@ -56,7 +54,6 @@
         "plugin:claude-official:looker",
         "plugin:claude-official:mongodb",
         "plugin:claude-official:mongodb-atlas",
-        "plugin:claude-official:neon",
         "plugin:claude-official:oracledb",
         "plugin:claude-official:pinecone",
         "plugin:claude-official:qdrant-skills",
@@ -154,15 +151,12 @@
         "plugin:claude-official:jdtls-lsp",
         "plugin:claude-official:kotlin-lsp",
         "plugin:claude-official:laravel-boost",
-        "plugin:claude-official:liquid-lsp",
-        "plugin:claude-official:liquid-skills",
         "plugin:claude-official:lovable",
         "plugin:claude-official:lua-lsp",
         "plugin:claude-official:lumen",
         "plugin:claude-official:mcp-apps",
         "plugin:claude-official:mcp-server-dev",
         "plugin:claude-official:mcp-tunnels",
-        "plugin:claude-official:mercadopago",
         "plugin:claude-official:mergify",
         "plugin:claude-official:microsoft-docs",
         "plugin:claude-official:migration-to-aws",
@@ -203,7 +197,6 @@
         "plugin:claude-official:skill-creator",
         "plugin:claude-official:snowflake-cortex-code",
         "plugin:claude-official:sourcegraph",
-        "plugin:claude-official:streaming-skills-plugin",
         "plugin:claude-official:stripe",
         "plugin:claude-official:sumup",
         "plugin:claude-official:swift-lsp",
@@ -342,7 +335,6 @@
       "category": "other",
       "pluginIds": [
         "plugin:claude-official:ai-plugins",
-        "plugin:claude-official:aikido",
         "plugin:claude-official:atlan",
         "plugin:claude-official:brightdata-plugin",
         "plugin:claude-official:cloudinary",
@@ -352,6 +344,7 @@
         "plugin:claude-official:nimble",
         "plugin:claude-official:prisma",
         "plugin:claude-official:remember",
+        "plugin:cursor-official:advisor",
         "plugin:cursor-official:agent-compatibility",
         "plugin:cursor-official:ahrefs",
         "plugin:cursor-official:amplemarket",
@@ -485,7 +478,6 @@
         "plugin:claude-official:hunter",
         "plugin:claude-official:imessage",
         "plugin:claude-official:intercom",
-        "plugin:claude-official:legalzoom",
         "plugin:claude-official:linear",
         "plugin:claude-official:lusha",
         "plugin:claude-official:monday-crm",
@@ -580,5 +572,6 @@
         "plugin:claude-official:playwright"
       ]
     }
-  ]
+  ],
+  "schemaVersion": 1
 }

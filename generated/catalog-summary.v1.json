@@ -1,9 +1,5 @@
 {
-  "schemaVersion": 1,
-  "catalogId": "catalog:98a14fab856cc99fa31f3c8ab75e5f52462a532ff2e46d63325a013767ac1ba7",
-  "generatedAt": "2026-09-04T03:22:06.687Z",
-  "sourceCount": 4,
-  "pluginCount": 478,
+  "catalogId": "catalog:73e4daeb267a062749a1f7677202640fae1d80c853388125fc1a66236f708a9e",
   "categories": [
     "automation",
     "business-operations",
@@ -26,19 +22,21 @@
     "security",
     "testing"
   ],
+  "generatedAt": "2026-09-05T17:20:14.311Z",
+  "pluginCount": 471,
   "productGroups": [
     "42crunch-api-security-testing",
     "activecampaign",
     "adobe",
     "adobe-for-creativity",
     "adspirer-ads-agent",
+    "advisor",
     "agent-compatibility",
     "agent-sdk-dev",
     "agentforce-adlc",
     "ahrefs",
     "ai-firstify",
     "ai-plugins",
-    "aikido",
     "airtable",
     "airwallex-agentos",
     "airwallex-dev",
@@ -144,7 +142,6 @@
     "data-agent-kit-starter-pack",
     "data-analytics",
     "databases-on-aws",
-    "databricks",
     "datadog",
     "dataproc",
     "dataverse",
@@ -220,11 +217,8 @@
     "learn-with-coursera",
     "learning-output-style",
     "legal",
-    "legalzoom",
     "life-science-research",
     "linear",
-    "liquid-lsp",
-    "liquid-skills",
     "logfire",
     "logrocket",
     "looker",
@@ -242,7 +236,6 @@
     "mcp-server-dev",
     "mcp-tunnels",
     "mem",
-    "mercadopago",
     "mercury",
     "mergify",
     "microsoft-docs",
@@ -257,7 +250,6 @@
     "mongodb",
     "mongodb-atlas",
     "navan",
-    "neon",
     "netlify-skills",
     "netsuite-ai-companion",
     "netsuite-finance-analyst",
@@ -368,7 +360,6 @@
     "spotify-ads-api",
     "stackhawk-api",
     "stackhawk-hawkscan",
-    "streaming-skills-plugin",
     "stripe",
     "sumup",
     "supabase",
@@ -420,6 +411,7 @@
     "zscaler",
     "zyte-web-data"
   ],
+  "schemaVersion": 1,
   "search": [
     {
       "pluginId": "plugin:claude-official:42crunch-api-security-testing",
@@ -444,10 +436,6 @@
     {
       "pluginId": "plugin:claude-official:ai-plugins",
       "text": "Endor Labs AI Plugins (Legacy) Set up endorctl and use Endor Labs to scan, prioritize, and fix security risks across your software supply chain ai other plugins"
-    },
-    {
-      "pluginId": "plugin:claude-official:aikido",
-      "text": "aikido Aikido Security scanning for Claude Code — SAST, secrets, and IaC vulnerability detection powered by the Aikido MCP server. aikido other"
     },
     {
       "pluginId": "plugin:claude-official:airtable",
@@ -726,10 +714,6 @@
       "text": "databases-on-aws Expert database guidance for the AWS database portfolio. Design schemas, execute queries, handle migrations, and choose the right database for your workload. aws data databases on"
     },
     {
-      "pluginId": "plugin:claude-official:databricks",
-      "text": "databricks Databricks skills for the CLI, Apps, Lakebase, Model Serving, Lakeflow Jobs, Spark Declarative Pipelines, Declarative Automation Bundles (DABs), and classic-to-serverless migration. data databricks"
-    },
-    {
       "pluginId": "plugin:claude-official:datadog",
       "text": "datadog Use Datadog directly in Claude Code through a preconfigured Datadog MCP server. Query logs, metrics, traces, dashboards, and more through natural conversation. This plugin is in preview. datadog monitoring"
     },
@@ -930,20 +914,8 @@
       "text": "learning-output-style Interactive learning mode that requests meaningful code contributions at decision points (mimics the unshipped Learning output style) learning output style"
     },
     {
-      "pluginId": "plugin:claude-official:legalzoom",
-      "text": "legalzoom Attorney guidance and legal tools for business and personal needs. AI-powered document review identifies critical risks and important clauses, advises when to engage an attorney, and routes to LegalZoom's network when professional expertise is needed. legalzoom productivity"
-    },
-    {
       "pluginId": "plugin:claude-official:linear",
       "text": "linear Linear issue tracking integration. Create issues, manage projects, update statuses, search across workspaces, and streamline your software development workflow with Linear's modern issue tracker. linear productivity"
-    },
-    {
-      "pluginId": "plugin:claude-official:liquid-lsp",
-      "text": "liquid-lsp LSP integration for Shopify Liquid templates via the Shopify CLI theme language server. developer-tools liquid lsp"
-    },
-    {
-      "pluginId": "plugin:claude-official:liquid-skills",
-      "text": "liquid-skills Liquid language fundamentals, CSS/JS/HTML coding standards, and WCAG accessibility patterns for Shopify themes developer-tools liquid skills"
     },
     {
       "pluginId": "plugin:claude-official:logfire",
@@ -994,10 +966,6 @@
       "text": "mcp-tunnels Connect Claude to a private MCP server through an Anthropic MCP tunnel. The /create-docker-mcp-tunnel command drives the Docker Compose quickstart end to end: certificates, proxy config, cloudflared, and a verifiable sample server. developer-tools mcp tunnels"
     },
     {
-      "pluginId": "plugin:claude-official:mercadopago",
-      "text": "Mercado Pago Mercado Pago full-product integration toolkit. One agent routes to four orchestration skills (mp-integrate wizard, mp-webhooks, mp-test-setup, mp-review) that pull every endpoint, payload, and snippet live from the official Mercado Pago MCP server. The MCP must always be connected — there is no offline mode. developer-tools mercadopago"
-    },
-    {
       "pluginId": "plugin:claude-official:mergify",
       "text": "mergify Skills for the Mergify CLI: manage merge queues, stacked pull requests, Test Insights (flaky tests, quarantine), merge protections, and Mergify configuration directly from the terminal. developer-tools mergify"
     },
@@ -1036,10 +1004,6 @@
     {
       "pluginId": "plugin:claude-official:mongodb-atlas",
       "text": "mongodb-atlas Connect to MongoDB Atlas clusters only through the Atlas Managed MCP Server. Sign in with your Atlas account to explore data, manage collections, optimize queries, generate reliable code with MongoDB best practices, and manage Atlas resources such as clusters, projects, database users, and network access. If you are running a different MongoDB deployment or want to run a local MongoDB MCP Server, install the MongoDB (Self-Managed MCP) plugin instead. atlas data mongodb"
-    },
-    {
-      "pluginId": "plugin:claude-official:neon",
-      "text": "neon Manage your Neon projects and databases with the neon-postgres agent skill and the Neon MCP Server. data neon"
     },
     {
       "pluginId": "plugin:claude-official:netlify-skills",
@@ -1334,10 +1298,6 @@
       "text": "hawkscan Configure, run, and interpret HawkScan DAST results inside Claude Code. Generates stackhawk.yml configs, runs scans via CLI or Docker, and transforms security findings into prioritized fix tasks for your coding agent. hawkscan security stackhawk"
     },
     {
-      "pluginId": "plugin:claude-official:streaming-skills-plugin",
-      "text": "streaming-skills-plugin Skills for streaming application developers, covering Kafka and Flink client libraries and Schema Registry developer-tools plugin skills streaming"
-    },
-    {
       "pluginId": "plugin:claude-official:stripe",
       "text": "stripe Stripe development plugin for Claude developer-tools stripe"
     },
@@ -1464,6 +1424,10 @@
     {
       "pluginId": "plugin:claude-official:zyte-web-data",
       "text": "zyte-web-data Web scraping skills for Claude Code powered by the Zyte API — scrape sites, generate and run Scrapy spiders, define extraction schemas, and ship to Scrapy Cloud. automation data web zyte"
+    },
+    {
+      "pluginId": "plugin:cursor-official:advisor",
+      "text": "Advisor Consult a stronger model before major decisions, when stuck, and before declaring done. advisor other"
     },
     {
       "pluginId": "plugin:cursor-official:agent-compatibility",
@@ -2333,5 +2297,6 @@
       "pluginId": "plugin:openai-official:zotero",
       "text": "zotero Work with Zotero from Codex: search your library, export BibTeX, insert citations, and import references through the Zotero desktop app. education-research zotero"
     }
-  ]
+  ],
+  "sourceCount": 4
 }
