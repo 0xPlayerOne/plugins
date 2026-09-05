@@ -42,8 +42,17 @@ jobs:
         run: bun run schema:check && bun run verify:integrity
       - name: Generated artifact consistency
         run: |
-          bun run catalog sync --offline --fixture-root fixtures --json
-          git diff --exit-code -- generated
+          set -euo pipefail
+          live_backup="$(mktemp -d)"
+          cp -r generated/. "$live_backup/"
+          restore_live() { rm -rf generated && mv "$live_backup" generated; }
+          trap restore_live EXIT
+          # Offline fixture regen must byte-match the committed fixture snapshots.
+          # Live snapshots in generated/ belong to the publish flow, not this check.
+          bun run catalog sync --offline --fixture-root fixtures --json > /dev/null
+          diff -r generated fixtures/expected
+          restore_live
+          trap - EXIT
       - name: Dependency and secret scan boundary
         run: |
           if git grep -nE '(BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,})' -- . ':!bun.lock'; then
