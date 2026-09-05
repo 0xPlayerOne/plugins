@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/adea-ai/plugins/compare/v1.1.1...v1.1.2) (2026-09-05)
+
+
+### Bug Fixes
+
+* **ci:** open catalog snapshot PR instead of pushing direct to main ([#18](https://github.com/adea-ai/plugins/issues/18)) ([7e7a258](https://github.com/adea-ai/plugins/commit/7e7a25819b3ce01496aa1eaa054af5caf4245310))
+
 ## [1.1.1](https://github.com/adea-ai/plugins/compare/v1.1.0...v1.1.1) (2026-09-05)
 
 
