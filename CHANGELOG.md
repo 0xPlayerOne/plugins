@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/adea-ai/plugins/compare/v1.1.0...v1.1.1) (2026-09-05)
+
+
+### Bug Fixes
+
+* use canonical Apache-2.0 LICENSE text and declare SPDX license ([#16](https://github.com/adea-ai/plugins/issues/16)) ([4b03a39](https://github.com/adea-ai/plugins/commit/4b03a3934eeaf4e4fb4a78a3594d6b780efe3160))
+
 ## [1.1.0](https://github.com/adea-ai/plugins/compare/v1.0.1...v1.1.0) (2026-09-05)
 
 
