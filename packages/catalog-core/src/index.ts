@@ -1580,8 +1580,19 @@ async function walk(
   }
 }
 
+function sortArtifactKeys(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(sortArtifactKeys);
+  if (value !== null && typeof value === 'object')
+    return Object.fromEntries(
+      Object.keys(value as Record<string, unknown>)
+        .sort()
+        .map((key) => [key, sortArtifactKeys((value as Record<string, unknown>)[key])]),
+    );
+  return value;
+}
+
 function json(value: unknown): string {
-  return `${JSON.stringify(value, null, 2)}\n`;
+  return `${JSON.stringify(sortArtifactKeys(value), null, 2)}\n`;
 }
 
 function slug(value: string): string {
