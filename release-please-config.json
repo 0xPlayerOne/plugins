@@ -42,5 +42,7 @@
       "type": "chore",
       "section": "Maintenance"
     }
-  ]
+  ],
+  "release-type": "node",
+  "extra-files": []
 }
