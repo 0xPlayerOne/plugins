@@ -3,3 +3,6 @@ generated/**
 
 # Deterministic offline fixture snapshots (generated output, like generated/).
 fixtures/expected/**
+
+# Release-please changelogs are generated release metadata.
+CHANGELOG.md
