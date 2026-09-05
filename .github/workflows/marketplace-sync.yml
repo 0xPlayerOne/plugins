@@ -182,7 +182,11 @@ jobs:
           existing=$(gh pr list --head "$branch" --base main --state open --json number --jq '.[0].number // empty')
           if [ -z "$existing" ]; then
             gh pr create --base main --head "$branch" --title "chore(catalog): refresh marketplace snapshot" --body "$body"
+            existing=$(gh pr list --head "$branch" --base main --state open --json number --jq '.[0].number // empty')
           else
             echo "Updated existing pull request #${existing}."
           fi
+          # Land without human action once required checks pass; a red
+          # snapshot stays open for inspection instead.
+          gh pr merge "$existing" --squash --auto
           echo "changed=true" >> "$GITHUB_OUTPUT"
